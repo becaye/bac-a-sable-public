@@ -2319,3 +2319,126 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Burger Menu Mobile */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger-menu span {
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Responsive - Burger Menu */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -90vw;
+    top: 70px;
+    width: 90vw;
+    height: calc(100vh - 70px);
+    background: var(--white);
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+    align-items: stretch;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  .inscription-btn,
+  .panier-btn {
+    width: 100%;
+    padding: 12px 15px !important;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .inscription-btn {
+    background: var(--secondary-color) !important;
+    color: var(--white) !important;
+  }
+
+  .panier-btn {
+    background: var(--primary-color) !important;
+    color: var(--white) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    width: 100vw;
+    right: -100vw;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .burger-menu {
+    width: 28px;
+    height: 22px;
+  }
+
+  .burger-menu span {
+    height: 2.5px;
+  }
+}
+

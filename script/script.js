@@ -158,6 +158,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialiser le carousel des meilleures ventes
     initCarousel();
+
+    // Burger Menu Mobile
+    const burgerMenu = document.getElementById('burger-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    if (burgerMenu && navLinks) {
+        // Toggle menu au clic sur le burger
+        burgerMenu.addEventListener('click', function() {
+            burgerMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Fermer le menu quand un lien est cliqué
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Fermer le menu quand on clique en dehors
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickInsideBurger = burgerMenu.contains(event.target);
+
+            if (!isClickInsideNav && !isClickInsideBurger && navLinks.classList.contains('active')) {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
 });
 
 // Afficher les livres selon le filtre
@@ -417,4 +449,3 @@ function prevSlide() {
     currentSlide = (currentSlide - 1 + meilleuresVentes.length) % meilleuresVentes.length;
     updateCarousel();
 }
-
