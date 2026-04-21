@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         question.addEventListener('click', function() {
             const answer = this.nextElementSibling;
             const toggle = this.querySelector('.faq-toggle');
-            
+
             // Fermer les autres réponses
             document.querySelectorAll('.faq-answer').forEach(ans => {
                 if (ans !== answer) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Fonction pour souscrire à un abonnement
 function souscrire(formule) {
     const utilisateurConnecte = localStorage.getItem('utilisateur-connecte');
-    
+
     if (!utilisateurConnecte) {
         // Rediriger vers la page de compte si pas connecté
         alert(`Vous avez choisi: ${formule}\n\nVeuillez d'abord créer un compte ou vous connecter.`);
@@ -65,10 +65,11 @@ function souscrire(formule) {
 
     // Afficher une confirmation
     alert(`Abonnement ${formule} en cours de traitement...\n\nVous serez redirigé vers la page de paiement.`);
-    
+
     // Enregistrer l'abonnement choisi
     localStorage.setItem('abonnement-choisi', formule);
-    
+
     // Simuler un redirection vers un formulaire de paiement
     console.log(`Abonnement ${formule} choisi`);
 }
+

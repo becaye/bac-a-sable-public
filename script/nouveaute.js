@@ -63,7 +63,7 @@ function genererNouvelles(titres, categorie, count = 50) {
         "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
         "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
     ];
-    
+
     for (let i = 0; i < count; i++) {
         const titre = titres[i % titres.length];
         const auteur = auteurs[i % auteurs.length];
@@ -71,7 +71,7 @@ function genererNouvelles(titres, categorie, count = 50) {
         const dureeMinutes = 360 + Math.floor(Math.random() * 840); // Entre 6h et 20h
         const heures = Math.floor(dureeMinutes / 60);
         const minutes = dureeMinutes % 60;
-        
+
         nouvelles.push({
             id: `${categorie}-${i}`,
             titre: `${titre} - ${i + 1}`,
@@ -85,7 +85,7 @@ function genererNouvelles(titres, categorie, count = 50) {
             extrait: urlsExtraits[i % urlsExtraits.length]
         });
     }
-    
+
     return nouvelles;
 }
 
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.onglet-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
+
             const categorie = this.dataset.categorie;
             changerCategorie(categorie);
         });
@@ -151,14 +151,14 @@ document.addEventListener('DOMContentLoaded', function() {
 function changerCategorie(categorie) {
     etatPagination.categorieActive = categorie;
     etatPagination.pageActuelle = 1;
-    
+
     // Mettre à jour les données
     if (categorie === 'tous') {
         etatPagination.donnees = toutesLesNouvelles;
     } else {
         etatPagination.donnees = toutesLesNouvelles.filter(n => n.categorie === categorie);
     }
-    
+
     afficherNouvelles();
 }
 
@@ -174,7 +174,7 @@ function afficherNouvelles() {
     nouvellesAffichees.forEach((nouvelle, index) => {
         const carte = document.createElement('div');
         carte.className = 'nouvelle-card';
-        
+
         const couleurs = [
             { main: '#667eea', accent: '#764ba2' },
             { main: '#f093fb', accent: '#f5576c' },
@@ -188,7 +188,7 @@ function afficherNouvelles() {
             { main: '#f093fb', accent: '#f5576c' }
         ];
         const couleur = couleurs[index % couleurs.length];
-        
+
         carte.innerHTML = `
             <div class="nouvelle-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
                 <div class="nouvelle-emoji">${nouvelle.emoji}</div>
@@ -226,7 +226,7 @@ function mettreAJourPagination() {
     const fin = Math.min(etatPagination.pageActuelle * etatPagination.itemsParPage, etatPagination.donnees.length);
 
     // Info de pagination
-    document.getElementById('pagination-info').textContent = 
+    document.getElementById('pagination-info').textContent =
         `Affichage ${debut} à ${fin} sur ${etatPagination.donnees.length} nouveautés`;
 
     // Boutons précédent/suivant
@@ -242,7 +242,7 @@ function mettreAJourPagination() {
             if (i > 1 && (i === 3 && etatPagination.pageActuelle > 4)) {
                 numbersDiv.innerHTML += '<span class="pagination-ellipsis">...</span>';
             }
-            
+
             const btn = document.createElement('button');
             btn.className = `pagination-number ${i === etatPagination.pageActuelle ? 'active' : ''}`;
             btn.textContent = i;
@@ -293,7 +293,7 @@ function ajouterAuPanier(livreId, titre, prix) {
 
     sauvegarderPanier();
     mettreAJourCompteurPanier();
-    
+
     // Feedback visuel
     event.target.textContent = '✓ Ajouté';
     event.target.classList.add('ajoute');
@@ -302,3 +302,4 @@ function ajouterAuPanier(livreId, titre, prix) {
         event.target.classList.remove('ajoute');
     }, 1500);
 }
+

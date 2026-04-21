@@ -129,3 +129,4 @@ function getCheckboxValues(name) {
 function retournerAccueil() {
     window.location.href = 'accueil.html';
 }
+

@@ -100,7 +100,7 @@ let utilisateurs = JSON.parse(localStorage.getItem('utilisateurs')) || [];
 document.addEventListener('DOMContentLoaded', function() {
     afficherLivres('tous');
     mettreAJourCompteurPanier();
-    
+
     // Event listeners
     document.querySelectorAll('.filtre-btn').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -181,7 +181,7 @@ function afficherLivres(filtre) {
             { main: '#ff9a56', accent: '#ff6a88' }
         ];
         const couleur = couleurs[index % couleurs.length];
-        
+
         carte.innerHTML = `
             <div class="livre-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
                 <div class="livre-emoji">${livre.emoji}</div>
@@ -239,7 +239,7 @@ function ajouterAuPanier(livreId) {
 
     sauvegarderPanier();
     mettreAJourCompteurPanier();
-    
+
     // Feedback visuel
     event.target.textContent = '✓ Ajouté';
     event.target.classList.add('ajoute');
@@ -252,7 +252,7 @@ function ajouterAuPanier(livreId) {
 // Afficher le panier
 function afficherPanier() {
     const panierDiv = document.getElementById('panier-items');
-    
+
     if (panier.length === 0) {
         panierDiv.innerHTML = '<div class="panier-vide">Votre panier est vide</div>';
         document.getElementById('total').textContent = '0,00';
@@ -312,9 +312,9 @@ function commander() {
     }
 
     const total = panier.reduce((sum, item) => sum + (item.prix * item.quantite), 0);
-    
+
     alert(`Merci pour votre commande!\n\nTotal: ${total.toFixed(2)}€\n\nVous recevrez bientôt un email de confirmation.`);
-    
+
     panier = [];
     sauvegarderPanier();
     mettreAJourCompteurPanier();
@@ -336,12 +336,12 @@ let currentSlide = 0;
 // Initialiser le carousel
 function initCarousel() {
     if (meilleuresVentes.length === 0) return;
-    
+
     const carousel = document.getElementById('carousel');
     const dotsContainer = document.getElementById('carousel-dots');
-    
+
     if (!carousel || !dotsContainer) return;
-    
+
     // Créer les slides
     carousel.innerHTML = '';
     meilleuresVentes.forEach((livre, index) => {
@@ -354,7 +354,7 @@ function initCarousel() {
         ];
         const couleur = couleurs[index % couleurs.length];
         const background = `linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%)`;
-        
+
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         slide.style.background = background;
@@ -380,7 +380,7 @@ function initCarousel() {
         `;
         carousel.appendChild(slide);
     });
-    
+
     // Créer les dots
     dotsContainer.innerHTML = '';
     meilleuresVentes.forEach((_, index) => {
@@ -389,7 +389,7 @@ function initCarousel() {
         dot.onclick = () => goToSlide(index);
         dotsContainer.appendChild(dot);
     });
-    
+
     updateCarousel();
 }
 
@@ -397,9 +397,9 @@ function initCarousel() {
 function updateCarousel() {
     const carousel = document.getElementById('carousel');
     if (!carousel) return;
-    
+
     carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-    
+
     // Mettre à jour les dots
     const dots = document.querySelectorAll('.carousel-dot');
     dots.forEach((dot, index) => {
@@ -424,3 +424,4 @@ function prevSlide() {
     currentSlide = (currentSlide - 1 + meilleuresVentes.length) % meilleuresVentes.length;
     updateCarousel();
 }
+

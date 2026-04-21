@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Formulaire d'inscription
     document.getElementById('inscription-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const prenom = document.getElementById('prenom').value;
         const nom = document.getElementById('nom').value;
         const email = document.getElementById('email').value;
@@ -85,3 +85,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2500);
     });
 });
+
