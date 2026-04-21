@@ -161,6 +161,141 @@ body {
   background: var(--white);
 }
 
+/* Focus produit pleine largeur */
+.focus-produit-section {
+  padding: 70px 20px;
+  background: linear-gradient(120deg, #ecefff 0%, #f8efff 45%, #eef8ff 100%);
+}
+
+.focus-produit-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  box-shadow: 0 18px 44px rgba(108, 99, 255, 0.18);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.focus-produit-card:hover {
+  transform: translateY(-6px) scale(1.005);
+  box-shadow: 0 28px 60px rgba(108, 99, 255, 0.28);
+}
+
+.focus-produit-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 0, 110, 0.04));
+}
+
+/* Wrapper image + badge flottant */
+.focus-produit-image-wrapper {
+  position: relative;
+  grid-column: 1;
+  overflow: hidden;
+}
+
+.focus-produit-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: linear-gradient(135deg, #ffbe00, #ff7b00);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(255, 123, 0, 0.45);
+  letter-spacing: 0.3px;
+  animation: badgePulse 2.6s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(255, 123, 0, 0.45); }
+  50%       { transform: scale(1.07); box-shadow: 0 6px 20px rgba(255, 123, 0, 0.65); }
+}
+
+.focus-produit-image {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.focus-produit-card:hover .focus-produit-image {
+  transform: scale(1.04);
+}
+
+.focus-produit-content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.focus-produit-titre {
+  font-size: 30px;
+  line-height: 1.25;
+  color: var(--primary-color);
+  letter-spacing: 0.2px;
+}
+
+.focus-produit-resume {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.focus-produit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.focus-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f2f4ff, #eef9ff);
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(108, 99, 255, 0.18);
+}
+
+.focus-produit-link {
+  margin-top: 6px;
+  width: fit-content;
+  background: linear-gradient(135deg, var(--primary-color), #867dff);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 11px 18px;
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(108, 99, 255, 0.35);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.focus-produit-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(108, 99, 255, 0.45);
+}
+
+/* Actualites */
 .actualites .titre_moyen {
   font-size: 36px;
   margin-bottom: 40px;
@@ -1966,6 +2101,19 @@ body {
     gap: 20px;
   }
 
+  .focus-produit-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .focus-produit-image {
+    min-height: 240px;
+  }
+
+  .focus-produit-titre {
+    font-size: 26px;
+  }
+
   .actualites-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2011,6 +2159,27 @@ body {
 
   .livres-grid {
     grid-template-columns: 1fr;
+  }
+
+  .focus-produit-section {
+    padding: 50px 15px;
+  }
+
+  .focus-produit-content {
+    padding: 20px;
+  }
+
+  .focus-produit-titre {
+    font-size: 22px;
+  }
+
+  .focus-produit-resume {
+    font-size: 14px;
+  }
+
+  .focus-produit-link {
+    width: 100%;
+    text-align: center;
   }
 
   .actualites-grid {
