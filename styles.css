@@ -2106,6 +2106,8 @@ body {
   flex-wrap: wrap;
   gap: 8px 18px;
   align-items: center;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .footer-list li {
@@ -2127,6 +2129,8 @@ body {
 .footer-list .footer-accessibility {
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 /* Responsive */
@@ -2191,6 +2195,16 @@ body {
 
   .footer-columns {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-list {
+    justify-content: center;
+  }
+
+  .footer-list .footer-accessibility {
+    margin-left: 0;
+    width: 100%;
     text-align: center;
   }
 }
