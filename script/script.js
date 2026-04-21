@@ -197,13 +197,6 @@ function afficherLivres(filtre) {
                 <div class="livre-description">${livre.description}</div>
                 <div class="livre-duree">⏱️ ${livre.duree}</div>
                 <div class="livre-prix">${livre.prix.toFixed(2)}€</div>
-                <div class="livre-extrait">
-                    <label class="extrait-label">🎧 Écoutez un extrait:</label>
-                    <audio class="extrait-audio" controls preload="none">
-                        <source src="${livre.extrait}" type="audio/mpeg">
-                        Votre navigateur ne supporte pas l'élément audio.
-                    </audio>
-                </div>
                 <button class="btn-ajouter" onclick="ajouterAuPanier(${livre.id})">Ajouter au panier</button>
             </div>
         `;
