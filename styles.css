@@ -2150,8 +2150,12 @@ body {
   }
 
   .focus-produit-card {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .focus-produit-image-wrapper {
+    display: none;
   }
 
   .focus-produit-image {
