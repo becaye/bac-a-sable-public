@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioBooks - Vente de Livres Audio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🎧 AudioBooks</div>
+            <ul class="nav-links">
+                <li><a href="#accueil" class="active">Accueil</a></li>
+                <li><a href="#catalogue">Catalogue</a></li>
+                <li><a href="nouveaute.html">Nouveautés</a></li>
+                <li><a href="abonnement.html">Abonnements</a></li>
+                <li><a href="sondage.html">Sondage</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
+                <li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue sur AudioBooks</h1>
+            <p>Découvrez notre sélection de livres audio de qualité</p>
+            <button class="btn-primary" onclick="document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'})">Découvrir le catalogue</button>
+        </div>
+    </section>
+
+    <!-- Carousel des Meilleures Ventes -->
+    <section id="meilleures-ventes" class="carousel-section">
+        <div class="container">
+            <h2>Nos Meilleures Ventes</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="prevSlide()">❮</button>
+                <div class="carousel-wrapper">
+                    <div class="carousel" id="carousel">
+                        <!-- Les slides seront générés par JavaScript -->
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="nextSlide()">❯</button>
+            </div>
+            <div class="carousel-dots" id="carousel-dots">
+                <!-- Les points seront générés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogue -->
+    <section id="catalogue" class="catalogue">
+        <div class="container">
+            <h2>Notre Catalogue</h2>
+            <div class="filtres">
+                <button class="filtre-btn active" data-filtre="tous">Tous</button>
+                <button class="filtre-btn" data-filtre="roman">Roman</button>
+                <button class="filtre-btn" data-filtre="developpement">Développement</button>
+                <button class="filtre-btn" data-filtre="jeunesse">Jeunesse</button>
+            </div>
+            <div class="livres-grid" id="livres-grid">
+                <!-- Les livres seront générés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Panier Modal -->
+    <div id="panier-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Votre Panier</h2>
+            <div id="panier-items"></div>
+            <div class="panier-total">
+                <strong>Total: <span id="total">0,00</span>€</strong>
+            </div>
+            <button class="btn-primary" onclick="commander()">Commander</button>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Nous Contacter</h2>
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea placeholder="Votre message" rows="5" required></textarea>
+                <button type="submit" class="btn-primary">Envoyer</button>
+            </form>
+            <div id="message-confirmation" style="display:none;" class="message-success">
+                Merci pour votre message! Nous vous recontacterons bientôt.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
+            <p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
+        </div>
+    </footer>
+
+    <!-- Exemple -->
+    <section id="exemple" class="exemple">
+        <div class="container">
+            <h2>Écoutez un extrait:</h2>
+            <div class="extrait">
+                [━━━━●━━━━━━━━━━━━━] ⏱️ 0:30
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

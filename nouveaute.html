@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveautés - AudioBooks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🎧 AudioBooks</div>
+            <ul class="nav-links">
+                <li><a href="accueil.html" class="active">Accueil</a></li>
+                <li><a href="accueil.html#catalogue">Catalogue</a></li>
+                <li><a href="nouveaute.html">Nouveautés</a></li>
+                <li><a href="abonnement.html">Abonnements</a></li>
+                <li><a href="sondage.html">Sondage</a></li>
+                <li><a href="accueil.html#contact">Contact</a></li>
+                <li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
+                <li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Nouveautés -->
+    <section class="nouveaute-section">
+        <div class="container">
+            <div class="nouveaute-header">
+                <h1>Nos Nouveautés</h1>
+                <p class="nouveaute-description">Découvrez les derniers titres ajoutés à notre bibliothèque</p>
+            </div>
+
+            <!-- Onglets Catégories -->
+            <div class="onglets-container">
+                <div class="onglets-list">
+                    <button class="onglet-btn active" data-categorie="tous">
+                        <span class="onglet-icon">📚</span> Tous
+                    </button>
+                    <button class="onglet-btn" data-categorie="roman">
+                        <span class="onglet-icon">📖</span> Romans
+                    </button>
+                    <button class="onglet-btn" data-categorie="developpement">
+                        <span class="onglet-icon">💻</span> Développement
+                    </button>
+                    <button class="onglet-btn" data-categorie="jeunesse">
+                        <span class="onglet-icon">🎈</span> Jeunesse
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grille des Nouveautés -->
+            <div class="nouveaute-grid" id="nouveaute-grid">
+                <!-- Les nouveautés seront générées par JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container">
+                <div class="pagination-info" id="pagination-info"></div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" id="prev-btn" onclick="allerPagePrecedente()">← Précédente</button>
+                    <div class="pagination-numbers" id="pagination-numbers"></div>
+                    <button class="pagination-btn" id="next-btn" onclick="allerPageSuivante()">Suivante →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panier Modal -->
+    <div id="panier-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Votre Panier</h2>
+            <div id="panier-items"></div>
+            <div class="panier-total">
+                <strong>Total: <span id="total">0,00</span>€</strong>
+            </div>
+            <button class="btn-primary" onclick="commander()">Commander</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
+            <p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="nouveaute.js"></script>
+</body>
+</html>
