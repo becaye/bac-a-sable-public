@@ -98,51 +98,74 @@ let utilisateurs = JSON.parse(localStorage.getItem('utilisateurs')) || [];
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
-    afficherLivres('tous');
-    mettreAJourCompteurPanier();
+    // Burger Menu Mobile - Doit fonctionner sur toutes les pages
+    initBurgerMenu();
 
-    // Event listeners
-    document.querySelectorAll('.filtre-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            afficherLivres(this.dataset.filtre);
+    // Le reste du code ne s'exécute que sur la page d'accueil
+    const livresGrid = document.getElementById('livres-grid');
+    if (livresGrid) {
+        afficherLivres('tous');
+        mettreAJourCompteurPanier();
+
+        // Event listeners
+        document.querySelectorAll('.filtre-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                afficherLivres(this.dataset.filtre);
+            });
         });
-    });
 
-    // Gestion du modal panier
+        // Initialiser le carousel des meilleures ventes
+        initCarousel();
+    }
+
+    // Gestion du modal panier (sur toutes les pages)
     const modal = document.getElementById('panier-modal');
     const panierBtn = document.getElementById('panier-btn');
     const closeBtn = document.querySelector('.close');
 
-    panierBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.add('active');
-        afficherPanier();
-    });
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.classList.remove('active');
+    if (panierBtn) {
+        panierBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (modal) {
+                modal.classList.add('active');
+                afficherPanier();
+            }
         });
     }
 
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    if (modal) {
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
 
     // Formulaire de contact
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const confirmation = document.getElementById('message-confirmation');
-        confirmation.style.display = 'block';
-        this.reset();
-        setTimeout(() => {
-            confirmation.style.display = 'none';
-        }, 3000);
-    });
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const confirmation = document.getElementById('message-confirmation');
+            if (confirmation) {
+                confirmation.style.display = 'block';
+                this.reset();
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 3000);
+            }
+        });
+    }
 
     // Navigation active
     document.querySelectorAll('nav a, .hero button').forEach(link => {
@@ -155,17 +178,17 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+});
 
-    // Initialiser le carousel des meilleures ventes
-    initCarousel();
-
-    // Burger Menu Mobile
+// Initialiser le Burger Menu
+function initBurgerMenu() {
     const burgerMenu = document.getElementById('burger-menu');
     const navLinks = document.getElementById('nav-links');
 
     if (burgerMenu && navLinks) {
         // Toggle menu au clic sur le burger
-        burgerMenu.addEventListener('click', function() {
+        burgerMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
             burgerMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
@@ -181,16 +204,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Fermer le menu quand on clique en dehors
         document.addEventListener('click', function(event) {
-            const isClickInsideNav = navLinks.contains(event.target);
-            const isClickInsideBurger = burgerMenu.contains(event.target);
+            if (navLinks.classList.contains('active')) {
+                const isClickInsideNav = navLinks.contains(event.target);
+                const isClickInsideBurger = burgerMenu.contains(event.target);
 
-            if (!isClickInsideNav && !isClickInsideBurger && navLinks.classList.contains('active')) {
-                burgerMenu.classList.remove('active');
-                navLinks.classList.remove('active');
+                if (!isClickInsideNav && !isClickInsideBurger) {
+                    burgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
             }
         });
     }
-});
+}
 
 // Afficher les livres selon le filtre
 function afficherLivres(filtre) {
