@@ -167,6 +167,10 @@ body {
   background: linear-gradient(120deg, #ecefff 0%, #f8efff 45%, #eef8ff 100%);
 }
 
+.focus-produit-section a{
+  text-decoration: none;
+}
+
 .focus-produit-card {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
