@@ -180,12 +180,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (livresGrid) {
         afficherLivres('tous');
         mettreAJourCompteurPanier();
+        syncFiltreAriaPressed();
 
         // Event listeners
         document.querySelectorAll('.filtre-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                syncFiltreAriaPressed();
                 afficherLivres(this.dataset.filtre);
             });
         });
@@ -256,6 +258,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function syncFiltreAriaPressed() {
+    document.querySelectorAll('.filtre-btn').forEach(btn => {
+        const isActive = btn.classList.contains('active');
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+}
 
 // Initialiser le Burger Menu
 function initBurgerMenu() {
