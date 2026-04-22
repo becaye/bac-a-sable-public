@@ -96,6 +96,80 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 // Utilisateurs
 let utilisateurs = JSON.parse(localStorage.getItem('utilisateurs')) || [];
 
+// Validation du formulaire de contact (globale)
+function validateContactForm() {
+    const nom = document.getElementById('nom').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    let isValid = true;
+    
+    // Validation nom
+    const nomError = document.getElementById('nom-error');
+    const nomInput = document.getElementById('nom');
+    if (nom === '') {
+        showError(nomInput, nomError, 'Ce champ est obligatoire');
+        isValid = false;
+    } else {
+        hideError(nomInput, nomError);
+    }
+    
+    // Validation email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailError = document.getElementById('email-error');
+    const emailInput = document.getElementById('email');
+    if (email === '') {
+        showError(emailInput, emailError, 'Ce champ est obligatoire');
+        isValid = false;
+    } else if (!emailRegex.test(email)) {
+        showError(emailInput, emailError, 'Veuillez entrer une adresse email valide');
+        isValid = false;
+    } else {
+        hideError(emailInput, emailError);
+    }
+    
+    // Validation message
+    const messageError = document.getElementById('message-error');
+    const messageInput = document.getElementById('message');
+    if (message === '') {
+        showError(messageInput, messageError, 'Ce champ est obligatoire');
+        isValid = false;
+    } else if (message.length < 10) {
+        showError(messageInput, messageError, 'Le message doit contenir au moins 10 caractères');
+        isValid = false;
+    } else if (message.length > 500) {
+        showError(messageInput, messageError, 'Le message ne peut pas dépasser 500 caractères');
+        isValid = false;
+    } else {
+        hideError(messageInput, messageError);
+    }
+    
+    // Si valide, soumettre
+    if (isValid) {
+        const contactForm = document.getElementById('contact-form');
+        const confirmation = document.getElementById('message-confirmation');
+        if (confirmation) {
+            confirmation.style.display = 'block';
+            contactForm.reset();
+            setTimeout(() => {
+                confirmation.style.display = 'none';
+            }, 3000);
+        }
+    }
+}
+
+function showError(input, errorDiv, message) {
+    input.classList.add('input-error');
+    errorDiv.textContent = message;
+    errorDiv.classList.add('show');
+}
+
+function hideError(input, errorDiv) {
+    input.classList.remove('input-error');
+    errorDiv.textContent = '';
+    errorDiv.classList.remove('show');
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
     // Burger Menu Mobile - Doit fonctionner sur toutes les pages
@@ -151,21 +225,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Formulaire de contact
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const confirmation = document.getElementById('message-confirmation');
-            if (confirmation) {
-                confirmation.style.display = 'block';
-                this.reset();
-                setTimeout(() => {
-                    confirmation.style.display = 'none';
-                }, 3000);
-            }
-        });
-    }
+    // Listeners pour nettoyer les erreurs au fur et à mesure
+    document.getElementById('nom')?.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+            hideError(this, document.getElementById('nom-error'));
+        }
+    });
+    
+    document.getElementById('email')?.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+            hideError(this, document.getElementById('email-error'));
+        }
+    });
+    
+    document.getElementById('message')?.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+            hideError(this, document.getElementById('message-error'));
+        }
+    });
 
     // Navigation active
     document.querySelectorAll('nav a, .hero button').forEach(link => {
