@@ -10,7 +10,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">🎧 AudioBooks</div>
+            <p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
             <button class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
@@ -23,8 +23,8 @@
                 <li><a href="v1/abonnement.html">Abonnements</a></li>
                 <li><a href="v1/sondage.html">Sondage</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="v1/compte.html" class="inscription-btn">👤 S'inscrire</a></li>
-                <li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
+                <li><a href="v1/compte.html" class="inscription-btn"><span aria-hidden="true">👤</span> S'inscrire</a></li>
+                <li><a href="#" id="panier-btn" class="panier-btn"><span aria-hidden="true">🛒</span> Panier <span id="panier-count">0</span></a></li>
             </ul>
         </div>
     </nav>
@@ -89,16 +89,26 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Nous Contacter</h2>
-            <form id="contact-form" class="contact-form">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <textarea placeholder="Votre message" rows="5" required></textarea>
-                <button type="submit" class="btn-primary">Envoyer</button>
+            <div class="titre_moyen">Nous Contacter</div>
+            <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label>Votre nom:</label>
+                    <input type="text" id="nom" name="nom" placeholder="Dus" />
+                    <div id="nom-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>Votre email:</label>
+                    <input type="text" id="email" name="email" placeholder="jean-claude.dus@bronze.fr" />
+                    <div id="email-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>Votre message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Entrez votre message"></textarea>
+                    <div id="message-error" class="error-message"></div>
+                </div>
+                <div class="btn-primary" onclick="validateContactForm()">Envoyer</div>
             </form>
-            <div id="message-confirmation" style="display:none;" class="message-success">
-                Merci pour votre message! Nous vous recontacterons bientôt.
-            </div>
+            <div id="message-confirmation" style="display: none" class="message-success">Merci pour votre message! Nous vous recontacterons bientôt.</div>
         </div>
     </section>
 

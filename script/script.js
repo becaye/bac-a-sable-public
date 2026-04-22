@@ -180,14 +180,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (livresGrid) {
         afficherLivres('tous');
         mettreAJourCompteurPanier();
-        syncFiltreAriaPressed();
+        if (shouldSyncAriaPressedOnCurrentPage()) {
+            syncFiltreAriaPressed();
+        }
 
         // Event listeners
         document.querySelectorAll('.filtre-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                syncFiltreAriaPressed();
+                if (shouldSyncAriaPressedOnCurrentPage()) {
+                    syncFiltreAriaPressed();
+                }
                 afficherLivres(this.dataset.filtre);
             });
         });
@@ -251,15 +255,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (link.getAttribute('href')) {
             link.addEventListener('click', function() {
                 document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                if (this.classList.contains('nav-links')) {
-                    this.classList.add('active');
-                }
+                if (!this.classList.contains('panier-btn')) {
+                     this.classList.add('active');
+                 }
             });
         }
     });
 });
 
+function shouldSyncAriaPressedOnCurrentPage() {
+    const path = window.location.pathname;
+    return path.endsWith('/annulaire.html') || path.includes('/v1/');
+}
+
 function syncFiltreAriaPressed() {
+    if (!shouldSyncAriaPressedOnCurrentPage()) {
+        return;
+    }
+
     document.querySelectorAll('.filtre-btn').forEach(btn => {
         const isActive = btn.classList.contains('active');
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -308,6 +321,9 @@ function afficherLivres(filtre) {
     const grid = document.getElementById('livres-grid');
     grid.innerHTML = '';
 
+    const path = window.location.pathname;
+    const useAccessibleDuree = path.endsWith('/annulaire.html') || path.includes('/v1/');
+
     const livresFiltres = filtre === 'tous' ? livres : livres.filter(l => l.categorie === filtre);
 
     livresFiltres.forEach((livre, index) => {
@@ -338,7 +354,7 @@ function afficherLivres(filtre) {
                 <div class="livre-auteur">par ${livre.auteur}</div>
                 <div class="livre-categorie">${getCategorieLabel(livre.categorie)}</div>
                 <div class="livre-description">${livre.description}</div>
-                <div class="livre-duree">⏱️ ${livre.duree}</div>
+                <div class="livre-duree">${useAccessibleDuree ? `<span aria-hidden="true">⏱️</span><span class="sr-only">Durée</span>` : '⏱️'} ${livre.duree}</div>
                 <div class="livre-prix">${livre.prix.toFixed(2)}€</div>
                 <button class="btn-ajouter" onclick="ajouterAuPanier(${livre.id})">Ajouter au panier</button>
             </div>
