@@ -8,14 +8,15 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <header role="banner" class="navbar">
         <div class="nav-container">
-            <div class="logo">🎧 AudioBooks</div>
+            <p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
             <button class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <nav role="navigation" aria-label="Menu de navigation principal">
             <ul class="nav-links" id="nav-links">
                 <li><a href="../annulaire.html">Accueil</a></li>
                 <li><a href="../annulaire.html#catalogue">Catalogue</a></li>
@@ -26,11 +27,13 @@
                 <li><a href="compte.html" class="inscription-btn" class="active" aria-current="page">👤 S'inscrire</a></li>
                 <li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Section Création de Compte -->
-    <section class="compte-section">
+    <main role="main">
+        <section id="compte" class="compte-section">
         <div class="container">
             <div class="compte-container">
                 <h1>Créer un Compte</h1>
@@ -90,12 +93,12 @@
                 </div>
 
                 <div class="compte-lien">
-                    <p>Vous avez déjà un compte? <a href="#" onclick="alert('La page de connexion sera bientôt disponible!')">Se connecter</a></p>
+                    <p>Vous avez déjà un compte? <a href="#">Se connecter</a></p>
                 </div>
             </div>
         </div>
     </section>
-
+    </main>
     <!-- Panier Modal -->
     <div id="panier-modal" class="modal">
         <div class="modal-content">
@@ -110,7 +113,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer role="contentinfo" class="footer">
         <div class="container">
             <p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
             <p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>

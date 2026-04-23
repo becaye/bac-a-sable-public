@@ -11,7 +11,12 @@
 		<!-- Navigation -->
 		<header role="banner" class="navbar">
 			<div class="nav-container">
-				<div class="logo"><span aria-hidden="true">🎧</span> AudioBooks</div>
+				<p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
+      <button class="burger-menu" id="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
 				<nav role="navigation" aria-label="Menu de navigation principal">
 					<ul class="nav-links">
 						<li><a href="#accueil" class="active">Accueil</a></li>
@@ -174,21 +179,21 @@
 					<h2 class="titre_moyen">Nous Contacter</h2>
 					<form id="contact-form" class="contact-form" novalidate>
 						<div class="form-group">
-							<label>Votre nom:</label>
+							<label for="nom">Votre nom:</label>
 							<input type="text" id="nom" name="nom" placeholder="Dus" />
 							<div id="nom-error" class="error-message"></div>
 						</div>
 						<div class="form-group">
-							<label>Votre email:</label>
+							<label for="email">Votre email:</label>
 							<input type="text" id="email" name="email" placeholder="jean-claude.dus@bronze.fr" />
 							<div id="email-error" class="error-message"></div>
 						</div>
 						<div class="form-group">
-							<label>Votre message:</label>
+							<label for="message">Votre message:</label>
 							<textarea id="message" name="message" rows="5" placeholder="Entrez votre message"></textarea>
 							<div id="message-error" class="error-message"></div>
 						</div>
-						<div class="btn-primary" onclick="validateContactForm()">Envoyer</div>
+						<button class="btn-primary" onclick="validateContactForm()">Envoyer</button>
 					</form>
 					<div id="message-confirmation" style="display: none" class="message-success">Merci pour votre message! Nous vous recontacterons bientôt.</div>
 				</div>
@@ -252,7 +257,7 @@
 					<div class="footer-section">
 						<nav role="navigation" aria-label="Menu de navigation secondaire">
 							<ul class="footer-list">
-								<li><a href="#accueil">Accueil</a></li>
+								<li><a href="#accueil" aria-current="page">Accueil</a></li>
 								<li><a href="#catalogue">Catalogue</a></li>
 								<li><a href="v0/nouveaute.html">Nouveautés</a></li>
 								<li><a href="v0/abonnement.html">Abonnements</a></li>
