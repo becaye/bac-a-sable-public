@@ -2486,3 +2486,14 @@ body {
   white-space: nowrap;
   border: 0;
 }
+
+
+.focus-produit-section.v2{
+  position: relative; /* 1 */
+}
+.focus-produit-section.v2 .focus-produit-link::before{
+  content: ''; /* 1 */
+  position: absolute; /* 2 */
+  inset: 0; /* 2 */
+  z-index: 1; /* 3 */
+}
