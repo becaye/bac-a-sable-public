@@ -2525,27 +2525,39 @@ body {
   }
 }
 
-.skip-links {
-  position: absolute;
-  top: 0;
-  left: 0;
+.skip-links-container {
+  position: relative;
   z-index: 3000;
+  max-height: 0;
+  overflow: hidden;
+  background: #000;
+  transition: max-height var(--transition-base), padding var(--transition-base);
+  padding: 0 12px;
+}
+
+.skip-links-container:focus-within {
+  max-height: 80px;
+  padding: 8px 12px;
+}
+
+.skip-links {
+  list-style: none;
 }
 
 .skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: #000;
+  display: inline-block;
   color: #fff;
+  background: var(--primary-color);
   padding: 10px 14px;
-  border-radius: 0 0 6px 0;
+  border-radius: 6px;
+  margin: 0 8px 8px 0;
   text-decoration: none;
   font-weight: 600;
 }
 
 .skip-link:focus {
-  left: 0;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .sr-only {
