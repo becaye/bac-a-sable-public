@@ -1,135 +1,139 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un Compte - AudioBooks</title>
-    <link rel="stylesheet" href="../styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Créer un Compte - AudioBooks</title>
+	<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <header role="banner" class="navbar">
-        <div class="nav-container">
-            <p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
-            <button class="burger-menu" id="burger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav role="navigation" aria-label="Menu de navigation principal">
-            <ul class="nav-links" id="nav-links">
-                <li><a href="../annulaire.html">Accueil</a></li>
-                <li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-                <li><a href="nouveaute.html">Nouveautés</a></li>
-                <li><a href="abonnement.html">Abonnements</a></li>
-                <li><a href="sondage.html">Sondage</a></li>
-                <li><a href="../annulaire.html#contact">Contact</a></li>
-                <li><a href="compte.html" class="inscription-btn active" aria-current="page">👤 S'inscrire</a></li>
-                <li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
-            </ul>
-            </nav>
-        </div>
-    </header>
+<!-- Navigation -->
+<header role="banner" class="navbar">
+	<div class="nav-container">
+		<p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
+		<button class="burger-menu" id="burger-menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+		<nav role="navigation" aria-label="Menu de navigation principal">
+			<ul class="nav-links" id="nav-links">
+				<li><a href="../annulaire.html">Accueil</a></li>
+				<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+				<li><a href="nouveaute.html">Nouveautés</a></li>
+				<li><a href="abonnement.html">Abonnements</a></li>
+				<li><a href="sondage.html">Sondage</a></li>
+				<li><a href="../annulaire.html#contact">Contact</a></li>
+				<li><a href="compte.html" class="inscription-btn active" aria-current="page">👤 S'inscrire</a></li>
+				<li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
 
-    <!-- Section Création de Compte -->
-    <main role="main">
-        <section id="compte" class="compte-section">
-        <div class="container">
-            <div class="compte-container">
-                <h1>Créer un Compte</h1>
-                <p class="compte-description">Rejoignez AudioBooks et découvrez notre collection de livres audio</p>
-                
-                <form id="inscription-form" class="inscription-form-page">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="prenom">Prénom *</label>
-                            <input type="text" placeholder="Jean" id="prenom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nom">Nom *</label>
-                            <input type="text" placeholder="Dupont" id="nom" required>
-                        </div>
-                    </div>
+<!-- Section Création de Compte -->
+<main role="main">
+	<section id="compte" class="compte-section">
+		<div class="container">
+			<div class="compte-container">
+				<h1>Créer un Compte</h1>
+				<p class="compte-description">Rejoignez AudioBooks et découvrez notre collection de livres audio</p>
 
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" placeholder="votre.email@example.com" id="email" required>
-                    </div>
+				<form id="inscription-form" class="inscription-form-page">
+					<div class="form-row">
+						<div class="form-group">
+							<label for="prenom">Prénom *</label>
+							<input type="text" placeholder="Jean" id="prenom" required>
+						</div>
+						<div class="form-group">
+							<label for="nom">Nom *</label>
+							<input type="text" placeholder="Dupont" id="nom" required>
+						</div>
+					</div>
 
-                    <div class="form-group">
-                        <label for="telephone">Téléphone *</label>
-                        <input type="tel" placeholder="+33 6 12 34 56 78" id="telephone" required>
-                    </div>
+					<div class="form-group">
+						<label for="email">Email *</label>
+						<input type="email" placeholder="votre.email@example.com" id="email" required>
+					</div>
 
-                    <div class="form-group">
-                        <label for="adresse">Adresse *</label>
-                        <input type="text" placeholder="123 Rue de la Paix, 75000 Paris" id="adresse" required>
-                    </div>
+					<div class="form-group">
+						<label for="telephone">Téléphone *</label>
+						<input type="tel" placeholder="+33 6 12 34 56 78" id="telephone" required>
+					</div>
 
-                    <div class="form-group">
-                        <label for="motdepasse">Mot de passe *</label>
-                        <input type="password" placeholder="Minimum 6 caractères" id="motdepasse" required>
-                        <small>Au minimum 6 caractères, avec lettres et chiffres recommandés</small>
-                    </div>
+					<div class="form-group">
+						<label for="adresse">Adresse *</label>
+						<input type="text" placeholder="123 Rue de la Paix, 75000 Paris" id="adresse" required>
+					</div>
 
-                    <div class="form-group">
-                        <label for="confirmer-motdepasse">Confirmer le mot de passe *</label>
-                        <input type="password" placeholder="Confirmez votre mot de passe" id="confirmer-motdepasse" required>
-                    </div>
+					<div class="form-group">
+						<label for="motdepasse">Mot de passe *</label>
+						<input type="password" placeholder="Minimum 6 caractères" id="motdepasse" required>
+						<small>Au minimum 6 caractères, avec lettres et chiffres recommandés</small>
+					</div>
 
-                    <div class="form-group checkbox">
-                        <input type="checkbox" id="conditions" required>
-                        <label for="conditions" class="checkbox-label">J'accepte les conditions d'utilisation et la politique de confidentialité</label>
-                    </div>
+					<div class="form-group">
+						<label for="confirmer-motdepasse">Confirmer le mot de passe *</label>
+						<input type="password" placeholder="Confirmez votre mot de passe" id="confirmer-motdepasse" required>
+					</div>
 
-                    <button type="submit" class="btn-primary btn-large">Créer mon compte</button>
-                </form>
+					<div class="form-group checkbox">
+						<input type="checkbox" id="conditions" required>
+						<label for="conditions" class="checkbox-label">J'accepte les conditions d'utilisation et la politique de
+							confidentialité</label>
+					</div>
 
-                <div id="inscription-message" style="display:none;" class="message-success message-large">
-                    <div style="font-size: 24px; margin-bottom: 10px;">✅</div>
-                    <strong>Compte créé avec succès!</strong>
-                    <p>Bienvenue sur AudioBooks 🎉</p>
-                    <p>Vous allez être redirigé vers la page d'accueil...</p>
-                </div>
+					<button type="submit" class="btn-primary btn-large">Créer mon compte</button>
+				</form>
 
-            </div>
-        </div>
-    </section>
-    </main>
-    <!-- Panier Modal -->
-    <div id="panier-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Votre Panier</h2>
-            <div id="panier-items"></div>
-            <div class="panier-total">
-                <strong>Total: <span id="total">0,00</span>€</strong>
-            </div>
-            <button class="btn-primary" onclick="commander()">Commander</button>
-        </div>
-    </div>
+				<div id="inscription-message" style="display:none;" class="message-success message-large">
+					<div style="font-size: 24px; margin-bottom: 10px;">✅</div>
+					<strong>Compte créé avec succès!</strong>
+					<p>Bienvenue sur AudioBooks 🎉</p>
+					<p>Vous allez être redirigé vers la page d'accueil...</p>
+				</div>
 
-    <!-- Footer -->
-    <footer role="contentinfo" class="footer">
-        <div class="container">
-            <p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
-            <p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
-            <div class="footer-extra">
-                <nav role="navigation" aria-label="Menu de navigation pied de page"></nav>
-                <ul class="footer-list">
-                    <li><a href="../annulaire.html">Accueil</a></li>
-                    <li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-                    <li><a href="nouveaute.html">Nouveautés</a></li>
-                    <li><a href="abonnement.html">Abonnements</a></li>
-                    <li><a href="sondage.html">Sondage</a></li>
-                    <li><a href="../annulaire.html#contact">Contact</a></li>
-                    <li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+			</div>
+		</div>
+	</section>
+</main>
+<!-- Panier Modal -->
+<div id="panier-modal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<h2>Votre Panier</h2>
+		<div id="panier-items"></div>
+		<div class="panier-total">
+			<strong>Total: <span id="total">0,00</span>€</strong>
+		</div>
+		<button class="btn-primary" onclick="commander()">Commander</button>
+	</div>
+</div>
 
-    <script src="../script/script.js"></script>
-    <script src="../script/compte.js"></script>
+<!-- Footer -->
+<footer role="contentinfo" class="footer">
+	<div class="container">
+		<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
+		<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
+		<div class="footer-extra">
+			<nav role="navigation" aria-label="Menu de navigation pied de page"></nav>
+			<ul class="footer-list">
+				<li><a href="../annulaire.html">Accueil</a></li>
+				<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+				<li><a href="nouveaute.html">Nouveautés</a></li>
+				<li><a href="abonnement.html">Abonnements</a></li>
+				<li><a href="sondage.html">Sondage</a></li>
+				<li><a href="../annulaire.html#contact">Contact</a></li>
+				<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+<script src="../script/script.js"></script>
+<script src="../script/compte.js"></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+				data-cf-beacon='{"token": "7819cac8bb7a40e09e5ded4d0fcb000e"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
