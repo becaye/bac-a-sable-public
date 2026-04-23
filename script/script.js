@@ -96,6 +96,9 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 // Utilisateurs
 let utilisateurs = JSON.parse(localStorage.getItem('utilisateurs')) || [];
 
+// Détection v2 (v2 ou annulaire.html)
+const v2 = window.location.href.includes('v2') || window.location.pathname.includes('annulaire.html');
+
 // Validation du formulaire de contact (globale)
 function validateContactForm() {
     const nom = document.getElementById('nom').value.trim();
@@ -319,6 +322,7 @@ function initBurgerMenu() {
 // Afficher les livres selon le filtre
 function afficherLivres(filtre) {
     const grid = document.getElementById('livres-grid');
+    
     grid.innerHTML = '';
 
     const path = window.location.pathname;
@@ -327,7 +331,12 @@ function afficherLivres(filtre) {
     const livresFiltres = filtre === 'tous' ? livres : livres.filter(l => l.categorie === filtre);
 
     livresFiltres.forEach((livre, index) => {
-        const carte = document.createElement('div');
+        let carte;
+        if(v2) 
+              carte = document.createElement('li');
+        else
+            carte = document.createElement('div');
+       
         carte.className = 'livre-card';
         const couleurs = [
             { main: '#667eea', accent: '#764ba2' },
@@ -343,14 +352,14 @@ function afficherLivres(filtre) {
 
         carte.innerHTML = `
             <div class="livre-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
-                <div class="livre-emoji">${livre.emoji}</div>
+                <div class="livre-emoji" aria-hidden="true">${livre.emoji}</div>
                 <div class="livre-couverture-content">
                     <div class="livre-couverture-titre">${livre.titre}</div>
                     <div class="livre-couverture-auteur">${livre.auteur}</div>
                 </div>
             </div>
             <div class="livre-content">
-                <div class="livre-titre">${livre.titre}</div>
+                <h3 class="livre-titre">${livre.titre}</h3>
                 <div class="livre-auteur">par ${livre.auteur}</div>
                 <div class="livre-categorie">${getCategorieLabel(livre.categorie)}</div>
                 <div class="livre-description">${livre.description}</div>
