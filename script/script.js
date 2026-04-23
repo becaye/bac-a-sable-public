@@ -97,7 +97,7 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 let utilisateurs = JSON.parse(localStorage.getItem('utilisateurs')) || [];
 
 // Détection v2 (v2 ou annulaire.html)
-const v2 = window.location.href.includes('v2') || window.location.pathname.includes('annulaire.html');
+const v2 = window.location.href.includes('v1') || window.location.pathname.includes('annulaire.html');
 
 // Validation du formulaire de contact (globale)
 function validateContactForm() {

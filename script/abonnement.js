@@ -1,5 +1,3 @@
-// Logique spécifique pour la page d'abonnement
-
 document.addEventListener('DOMContentLoaded', function() {
     mettreAJourCompteurPanier();
 
@@ -27,29 +25,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Gestion des questions FAQ
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function() {
-            const answer = this.nextElementSibling;
-            const toggle = this.querySelector('.faq-toggle');
+    if (v2) {
+        // ARIA disclosure pattern (v2)
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                const answerId = this.getAttribute('aria-controls');
+                const answer = document.getElementById(answerId);
+                const toggle = this.querySelector('.faq-toggle');
 
-            // Fermer les autres réponses
-            document.querySelectorAll('.faq-answer').forEach(ans => {
-                if (ans !== answer) {
-                    ans.style.display = 'none';
-                    ans.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                // Fermer les autres reponses
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    if (btn !== this && btn.getAttribute('aria-expanded') === 'true') {
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.querySelector('.faq-toggle').textContent = '+';
+                        const otherAnswerId = btn.getAttribute('aria-controls');
+                        document.getElementById(otherAnswerId).hidden = true;
+                    }
+                });
+
+                // Basculer la reponse actuelle
+                this.setAttribute('aria-expanded', !isExpanded);
+                toggle.textContent = isExpanded ? '+' : '−';
+                answer.hidden = isExpanded;
+            });
+        });
+    } else {
+        // Ancien fonctionnement (pas v2) - structure div/div/div sans ARIA
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                // Trouver la reponse avec nextElementSibling (ancien HTML structure)
+                const answer = this.nextElementSibling;
+                const toggle = this.querySelector('.faq-toggle');
+
+                // Fermer les autres reponses
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    if (btn !== this) {
+                        const otherAnswer = btn.nextElementSibling;
+                        if (otherAnswer) {
+                            otherAnswer.style.display = 'none';
+                            btn.querySelector('.faq-toggle').textContent = '+';
+                        }
+                    }
+                });
+
+                // Basculer la reponse actuelle
+                if (answer) {
+                    if (answer.style.display === 'none' || !answer.style.display) {
+                        answer.style.display = 'block';
+                        toggle.textContent = '−';
+                    } else {
+                        answer.style.display = 'none';
+                        toggle.textContent = '+';
+                    }
                 }
             });
-
-            // Basculer la réponse actuelle
-            if (answer.style.display === 'none' || !answer.style.display) {
-                answer.style.display = 'block';
-                toggle.textContent = '−';
-            } else {
-                answer.style.display = 'none';
-                toggle.textContent = '+';
-            }
         });
-    });
+    }
 });
 
 // Fonction pour souscrire à un abonnement
