@@ -2530,7 +2530,7 @@ body {
   z-index: 3000;
   max-height: 0;
   overflow: hidden;
-  background: #000;
+  background: var(--primary-color);
   transition: max-height var(--transition-base), padding var(--transition-base);
   padding: 0 12px;
 }
@@ -2542,12 +2542,15 @@ body {
 
 .skip-links {
   list-style: none;
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
 }
 
 .skip-link {
   display: inline-block;
   color: #fff;
-  background: var(--primary-color);
   padding: 10px 14px;
   border-radius: 6px;
   margin: 0 8px 8px 0;
