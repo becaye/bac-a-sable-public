@@ -1,252 +1,273 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>AudioBooks - Vente de Livres Audio</title>
-		<link rel="icon" href="favicon-poo.svg" type="image/svg" />
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
-		<!-- Navigation -->
-		<nav class="navbar">
-			<div class="nav-container">
-				<div class="logo">🎧 AudioBooks</div>
-				<ul class="nav-links">
-					<li><a href="#accueil" class="active">Accueil</a></li>
-					<li><a href="#catalogue">Catalogue</a></li>
-					<li><a href="v0/nouveaute.html">Nouveautés</a></li>
-					<li><a href="v0/abonnement.html">Abonnements</a></li>
-					<li><a href="v0/sondage.html">Sondage</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="v0/compte.html" class="inscription-btn">👤 S'inscrire</a></li>
-					<li>
-						<div id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></div>
-					</li>
-				</ul>
-			</div>
-		</nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioBooks - Index des Versions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		<!-- Hero Section -->
-		<section id="accueil" class="hero">
-			<div class="hero-content">
-				<h2>Bienvenue sur AudioBooks</h2>
-				<p>Découvrez notre sélection de livres audio de qualité</p>
-				<button class="btn-primary" onclick="document.getElementById('catalogue').scrollIntoView({ behavior: 'smooth' })">Découvrir le catalogue</button>
-			</div>
-		</section>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6c63ff 0%, #ff006e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-		<!-- Carousel des Meilleures Ventes -->
-		<section id="meilleures-ventes" class="carousel-section">
-			<div class="container">
-				<div class="titre_moyen">Nos Meilleures Ventes</div>
-				<div class="carousel-container">
-					<button class="carousel-btn prev" onclick="prevSlide()">❮</button>
-					<div class="carousel-wrapper">
-						<div class="carousel" id="carousel">
-							<!-- Les slides seront générés par JavaScript -->
-						</div>
-					</div>
-					<button class="carousel-btn next" onclick="nextSlide()">❯</button>
-				</div>
-				<div class="carousel-dots" id="carousel-dots">
-					<!-- Les points seront générés par JavaScript -->
-				</div>
-			</div>
-		</section>
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
 
-		<!-- Catalogue -->
-		<section id="catalogue" class="catalogue">
-			<div class="container">
-				<div class="titre_moyen">Notre Catalogue</div>
-				<div class="filtres">
-					<button class="filtre-btn active" data-filtre="tous">Tous</button>
-					<button class="filtre-btn" data-filtre="roman">Roman</button>
-					<button class="filtre-btn" data-filtre="developpement">Développement</button>
-					<button class="filtre-btn" data-filtre="jeunesse">Jeunesse</button>
-				</div>
-				<div class="livres-grid" id="livres-grid">
-					<!-- Les livres seront générés par JavaScript -->
-				</div>
-			</div>
-		</section>
+        .header {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 50px;
+        }
 
-		<!-- Focus Produit -->
-		<section class="focus-produit-section">
-			<a class="" href="#">
-				<div class="container">
-					<article class="focus-produit-card">
-						<div class="focus-produit-image-wrapper">
-							<img class="focus-produit-image" src="https://picsum.photos/seed/audiobooks-focus/900/520" alt="Illustration de notre service premium AudioBooks" />
-							<span class="focus-produit-badge">⭐ Produit du mois</span>
-						</div>
-						<div class="focus-produit-content">
-							<h3 class="focus-produit-titre">AudioBooks Premium Plus</h3>
-							<p class="focus-produit-resume">
-								Decouvrez une experience d'ecoute enrichie avec notre service Premium Plus: acces prioritaire aux nouveautes, recommandations personnalisees basees sur vos habitudes, mode hors ligne
-								intelligent, et synchronisation instantanee entre tous vos appareils. Concu pour les auditeurs exigeants, ce service transforme chaque moment d'ecoute en une experience fluide,
-								immersive et adaptee a votre rythme.
-							</p>
-							<div class="focus-produit-tags">
-								<span class="focus-tag">Nouveauté</span>
-								<span class="focus-tag">Sans engagement</span>
-								<span class="focus-tag">Hors ligne</span>
-								<span class="focus-tag">Recommandations IA</span>
-							</div>
-							<span class="focus-produit-link">Decouvrir notre service</span>
-						</div>
-					</article>
-				</div>
-			</a>
-		</section>
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-		<!-- Actualites -->
-		<section id="actualites" class="actualites">
-			<div class="container">
-				<div class="titre_moyen">Nos actualités</div>
-				<div class="actualites-grid">
-					<article class="actualite-card">
-						<img class="actualite-image" src="https://picsum.photos/seed/audiobooks-1/600/360" alt="Studio d'enregistrement de livre audio" />
-						<div class="actualite-content">
-							<time class="actualite-date" datetime="2026-04-20">20 avril 2026</time>
-							<h3 class="actualite-titre">Nouveaux studios d'enregistrement ouverts</h3>
-							<p class="actualite-resume">Nous augmentons notre capacite de production pour proposer plus de titres inedits chaque semaine.</p>
-							<a class="actualite-link" href="#">En savoir plus</a>
-						</div>
-					</article>
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
 
-					<article class="actualite-card">
-						<img class="actualite-image" src="https://picsum.photos/seed/audiobooks-2/600/360" alt="Application mobile en cours d'utilisation" />
-						<div class="actualite-content">
-							<time class="actualite-date" datetime="2026-04-15">15 avril 2026</time>
-							<h3 class="actualite-titre">Mise a jour de l'application mobile</h3>
-							<p class="actualite-resume">La nouvelle version ameliore la vitesse de lecture et ajoute des marque-pages intelligents.</p>
-							<a class="actualite-link" href="#">En savoir plus</a>
-						</div>
-					</article>
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.85;
+        }
 
-					<article class="actualite-card">
-						<img class="actualite-image" src="https://picsum.photos/seed/audiobooks-3/600/360" alt="Bibliotheque de livres audio en ligne" />
-						<div class="actualite-content">
-							<time class="actualite-date" datetime="2026-04-10">10 avril 2026</time>
-							<h3 class="actualite-titre">1000 nouveaux titres disponibles</h3>
-							<p class="actualite-resume">Notre catalogue s'enrichit avec des romans, essais et contenus jeunesse pour tous les publics.</p>
-							<a class="actualite-link" href="#">En savoir plus</a>
-						</div>
-					</article>
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
 
-					<article class="actualite-card">
-						<img class="actualite-image" src="https://picsum.photos/seed/audiobooks-4/600/360" alt="Partenariat entre equipes editoriales" />
-						<div class="actualite-content">
-							<time class="actualite-date" datetime="2026-04-05">5 avril 2026</time>
-							<h3 class="actualite-titre">Partenariat avec 3 maisons d'edition</h3>
-							<p class="actualite-resume">Ce partenariat accelere l'arrivee des meilleures ventes en version audio des leur sortie.</p>
-							<a class="actualite-link" href="#">En savoir plus</a>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-		<!-- Panier Modal -->
-		<div id="panier-modal" class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<div class="titre_moyen">Votre Panier</div>
-				<div id="panier-items"></div>
-				<div class="panier-total">
-					<strong>Total: <span id="total">0,00</span>€</strong>
-				</div>
-				<button class="btn-primary" onclick="commander()">Commander</button>
-			</div>
-		</div>
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
 
-		<!-- Contact -->
-		<section id="contact" class="contact">
-			<div class="container">
-				<div class="titre_moyen">Nous Contacter</div>
-				<form id="contact-form" class="contact-form" novalidate>
-					<div class="form-group">
-						<label>Votre nom:</label>
-						<input type="text" id="nom" name="nom" placeholder="Dus" />
-						<div id="nom-error" class="error-message"></div>
-					</div>
-					<div class="form-group">
-						<label>Votre email:</label>
-						<input type="text" id="email" name="email" placeholder="jean-claude.dus@bronze.fr" />
-						<div id="email-error" class="error-message"></div>
-					</div>
-					<div class="form-group">
-						<label>Votre message:</label>
-						<textarea id="message" name="message" rows="5" placeholder="Entrez votre message"></textarea>
-						<div id="message-error" class="error-message"></div>
-					</div>
-					<div class="btn-primary" onclick="validateContactForm()">Envoyer</div>
-				</form>
-				<div id="message-confirmation" style="display: none" class="message-success">Merci pour votre message! Nous vous recontacterons bientôt.</div>
-			</div>
-		</section>
+        .card-icon {
+            size: 60px;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
 
-		<!-- Footer -->
-		<footer class="footer">
-			<div class="container">
-				<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
-				<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
-				<div class="social">
-					<div class="titre_moyen">Rejoignez-nous sur nos réseaux</div>
-					<div class="social-links">
-						<a href="https://facebook.com/audiobooks" target="_blank" rel="noopener noreferrer" title="Facebook">
-							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-								<g id="SVGRepo_iconCarrier">
-									<path
-										d="M22 12C22 6.47714 17.5229 1.99999 12 1.99999C6.47715 1.99999 2 6.47714 2 12C2 16.9913 5.65686 21.1283 10.4375 21.8785V14.8906H7.89844V12H10.4375V9.79687C10.4375 7.29062 11.9304 5.90624 14.2146 5.90624C15.3087 5.90624 16.4531 6.10155 16.4531 6.10155V8.56249H15.1921C13.9499 8.56249 13.5625 9.33333 13.5625 10.1242V12H16.3359L15.8926 14.8906H13.5625V21.8785C18.3431 21.1283 22 16.9913 22 12Z"
-									></path>
-								</g>
-							</svg>
-						</a>
-						<a href="https://instagram.com/audiobooks" target="_blank" rel="noopener noreferrer" title="Instagram">
-							<svg viewBox="0 0 32 32" fill="currentColor">
-								<path
-									d="M22.3 8.4c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4M16 10.2c-3.3 0-5.9 2.7-5.9 5.9S12.8 22 16 22s5.9-2.7 5.9-5.9-2.6-5.9-5.9-5.9m0 9.7c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8 3.8 1.7 3.8 3.8-1.7 3.8-3.8 3.8"
-								/>
-								<path
-									d="M20.8 4h-9.5C7.2 4 4 7.2 4 11.2v9.5c0 4 3.2 7.2 7.2 7.2h9.5c4 0 7.2-3.2 7.2-7.2v-9.5c.1-4-3.1-7.2-7.1-7.2m4.9 16.8c0 2.7-2.2 5-5 5h-9.5c-2.7 0-5-2.2-5-5v-9.5c0-2.7 2.2-5 5-5h9.5c2.7 0 5 2.2 5 5z"
-								/>
-							</svg>
-						</a>
-						<a href="https://x.com/audiobooks" target="_blank" rel="noopener noreferrer" title="X">
-							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-								<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.207-6.807-5.974 6.807H2.306l7.644-8.743L.591 2.25h6.821l4.708 6.231 5.419-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z" />
-							</svg>
-						</a>
-						<a href="https://linkedin.com/company/audiobooks" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-								<path
-									d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.732-2.004 1.438-.103.25-.129.599-.129.948v5.419h-3.554s.05-8.787 0-9.7h3.554v1.373c.43-.664 1.199-1.608 2.925-1.608 2.135 0 3.735 1.39 3.735 4.38v5.555zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.958-1.71 1.187 0 1.911.755 1.937 1.71 0 .951-.75 1.71-1.98 1.71zm1.946 11.596h-3.554V9.504h3.554v10.947zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"
-								/>
-							</svg>
-						</a>
-					</div>
-				</div>
+        .card-icon svg {
+            width: 80px;
+            height: auto;
+        }
 
-				<div class="footer-extra">
-					<div class="footer-section">
-						<ul class="footer-list">
-							<li><a href="#accueil">Accueil</a></li>
-							<li><a href="#catalogue">Catalogue</a></li>
-							<li><a href="v0/nouveaute.html">Nouveautés</a></li>
-							<li><a href="v0/abonnement.html">Abonnements</a></li>
-							<li><a href="v0/sondage.html">Sondage</a></li>
-							<li><a href="#contact">Contact</a></li>
-							<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
+        .card.v0 .card-icon svg {
+            transform: rotate(45deg);
+            transform-origin: center;
+        }
 
-		<script src="script/script.js"></script>
-	</body>
+        .card h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #6c63ff, #867dff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 8px 18px rgba(108, 99, 255, 0.35);
+        }
+
+        .card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(108, 99, 255, 0.45);
+        }
+
+        .card.v0 {
+            border-top: 4px solid #ff6b6b;
+        }
+
+        .card.v0 h2 {
+            color: #ff6b6b;
+        }
+
+        .card.v0 a {
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+            box-shadow: 0 8px 18px rgba(255, 107, 107, 0.35);
+        }
+
+        .card.v0 a:hover {
+            box-shadow: 0 12px 24px rgba(255, 107, 107, 0.45);
+        }
+
+        .card.v1 {
+            border-top: 4px solid #28a745;
+        }
+
+        .card.v1 h2 {
+            color: #28a745;
+        }
+
+        .card.v1 a {
+            background: linear-gradient(135deg, #28a745, #34ce57);
+            box-shadow: 0 8px 18px rgba(40, 167, 69, 0.35);
+        }
+
+        .card.v1 a:hover {
+            box-shadow: 0 12px 24px rgba(40, 167, 69, 0.45);
+        }
+
+        .card.github {
+            border-top: 4px solid #333;
+        }
+
+        .card.github h2 {
+            color: #333;
+        }
+
+        .card.github a {
+            background: linear-gradient(135deg, #333, #555);
+            box-shadow: 0 8px 18px rgba(51, 51, 51, 0.35);
+        }
+
+        .card.github a:hover {
+            box-shadow: 0 12px 24px rgba(51, 51, 51, 0.45);
+        }
+
+        .footer {
+            text-align: center;
+            color: #fff;
+            opacity: 0.85;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .card-icon {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎧 AudioBooks</h1>
+            <p>Site de Test en Accessibilité Web</p>
+            <p class="subtitle">Sélectionnez la version que vous souhaitez consulter</p>
+        </div>
+
+        <div class="cards">
+            <!-- Version 0 - Non Accessible -->
+            <div class="card v0">
+                <div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="800" height="800" viewBox="0 0 292.377 292.377">
+                            <path d="M146.188 0C65.576 0 0 65.582 0 146.188s65.576 146.188 146.188 146.188 146.188-65.582 146.188-146.188S226.801 0 146.188 0m48.774 152.155h-42.806v42.8c0 3.3-2.667 5.967-5.967 5.967a5.96 5.96 0 0 1-5.967-5.967v-42.8H97.415c-3.294 0-5.967-2.673-5.967-5.967s2.673-5.967 5.967-5.967h42.806V97.415a5.965 5.965 0 0 1 5.967-5.967c3.3 0 5.967 2.673 5.967 5.967v42.806h42.806c3.3 0 5.967 2.673 5.967 5.967s-2.667 5.967-5.966 5.967" style="fill:#010002"/>
+                        </svg>
+                    </div>
+                    <span class="badge">Défauts d'accessibilité</span>
+                    <h2>Version 0 (v0)</h2>
+                    <p>Implémentation de base du site avec défauts d'accessibilité intentionnels. À utiliser comme référence pour identifier les problèmes.</p>
+                </div>
+                <a href="v0/abonnement.html" target="_blank">Accéder à v0</a>
+            </div>
+
+            <!-- Version 1 - Accessible -->
+            <div class="card v1">
+                <div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="800" height="800" viewBox="0 0 310.277 310.277">
+                            <path d="M155.139 0C69.598 0 0 69.598 0 155.139c0 85.547 69.598 155.139 155.139 155.139 85.547 0 155.139-69.592 155.139-155.139C310.277 69.598 240.686 0 155.139 0m-10.962 196.567L90.571 142.96l8.437-8.437 45.169 45.169 81.34-81.34 8.437 8.437z" style="fill:#010002"/>
+                        </svg>
+                    </div>
+                    <span class="badge">Conforme WCAG</span>
+                    <h2>Version 1 (v1)</h2>
+                    <p>Version améliorée avec corrections d'accessibilité. Implémente les bonnes pratiques et normes WCAG pour une meilleure inclusivité.</p>
+                </div>
+                <a href="v1/abonnement.html" target="_blank">Accéder à v1</a>
+            </div>
+
+            <!-- GitHub Repository -->
+            <div class="card github">
+                <div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 -0.5 25 25">
+                            <path d="M12.301 0h.093c2.242 0 4.34.613 6.137 1.68l-.055-.031a12.35 12.35 0 0 1 4.449 4.422l.031.058a12.2 12.2 0 0 1 1.654 6.166c0 5.406-3.483 10-8.327 11.658l-.087.026a.724.724 0 0 1-.642-.113l.002.001a.62.62 0 0 1-.208-.466v-.014.001l.008-1.226q.008-1.178.008-2.154a2.844 2.844 0 0 0-.833-2.274 11 11 0 0 0 1.718-.305l-.076.017a6.5 6.5 0 0 0 1.537-.642l-.031.017a4.5 4.5 0 0 0 1.292-1.058l.006-.007a4.9 4.9 0 0 0 .84-1.645l.009-.035a7.9 7.9 0 0 0 .329-2.281l-.001-.136v.007l.001-.072a4.73 4.73 0 0 0-1.269-3.23l.003.003c.168-.44.265-.948.265-1.479a4.25 4.25 0 0 0-.404-1.814l.011.026a2.095 2.095 0 0 0-1.31.181l.012-.005a8.6 8.6 0 0 0-1.512.726l.038-.022-.609.384c-.922-.264-1.981-.416-3.075-.416s-2.153.152-3.157.436l.081-.02q-.256-.176-.681-.433a9 9 0 0 0-1.272-.595l-.066-.022A2.17 2.17 0 0 0 5.837 5.1l.013-.002a4.2 4.2 0 0 0-.393 1.788c0 .531.097 1.04.275 1.509l-.01-.029a4.72 4.72 0 0 0-1.265 3.303v-.004l-.001.13c0 .809.12 1.591.344 2.327l-.015-.057c.189.643.476 1.202.85 1.693l-.009-.013a4.4 4.4 0 0 0 1.267 1.062l.022.011c.432.252.933.465 1.46.614l.046.011c.466.125 1.024.227 1.595.284l.046.004c-.431.428-.718 1-.784 1.638l-.001.012a3 3 0 0 1-.699.236l-.021.004c-.256.051-.549.08-.85.08h-.066.003a1.9 1.9 0 0 1-1.055-.348l.006.004a2.84 2.84 0 0 1-.881-.986l-.007-.015a2.6 2.6 0 0 0-.768-.827l-.009-.006a2.3 2.3 0 0 0-.776-.38l-.016-.004-.32-.048-.077-.003q-.211.002-.394.077l.007-.003q-.128.072-.08.184.058.128.145.225l-.001-.001q.092.108.205.19l.003.002.112.08c.283.148.516.354.693.603l.004.006c.191.237.359.505.494.792l.01.024.16.368c.135.402.38.738.7.981l.005.004c.3.234.662.402 1.057.478l.016.002c.33.064.714.104 1.106.112h.007q.069.003.15.002.392 0 .767-.062l-.027.004.368-.064q0 .609.008 1.418t.008.873v.014c0 .185-.08.351-.208.466h-.001a.72.72 0 0 1-.645.111l.005.001C3.486 22.286.006 17.692.006 12.285c0-2.268.612-4.393 1.681-6.219l-.032.058a12.35 12.35 0 0 1 4.422-4.449l.058-.031a11.9 11.9 0 0 1 6.073-1.645h.098zm-7.64 17.666q.048-.112-.112-.192-.16-.048-.208.032-.048.112.112.192.144.096.208-.032m.497.545q.112-.08-.032-.256-.16-.144-.256-.048-.112.08.032.256.159.157.256.047zm.48.72q.144-.112 0-.304-.128-.208-.272-.096-.144.08 0 .288t.272.112m.672.673q.128-.128-.064-.304-.192-.192-.32-.048-.144.128.064.304.192.192.32.044zm.913.4q.048-.176-.208-.256-.24-.064-.304.112t.208.24q.24.097.304-.096m1.009.08q0-.208-.272-.176-.256 0-.256.176 0 .208.272.176.256.001.256-.175zm.929-.16q-.032-.176-.288-.144-.256.048-.224.24t.288.128.225-.224z"/>
+                        </svg>
+                    </div>
+                    <span class="badge">Dépôt GitHub</span>
+                    <h2>Code Source</h2>
+                    <p>Consultez le dépôt GitHub du projet pour accéder au code complet, aux documentations et aux ressources supplémentaires.</p>
+                </div>
+                <a href="https://github.com/becaye/bac-a-sable-public" target="_blank">Voir sur GitHub</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Contributeurs:</strong> David Galantin, François-Xavier Lair, Henri Gauffriau</p>
+            <p>Un projet éducatif dédié à l'accessibilité web • Avril 2026</p>
+        </div>
+    </div>
+</body>
 </html>
+
