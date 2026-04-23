@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<!-- Navigation -->
-		<nav class="navbar">
+		<header role="banner" class="navbar">
 			<div class="nav-container">
 				<div class="logo">🎧 AudioBooks</div>
 				<button class="burger-menu" id="burger-menu">
@@ -16,23 +16,24 @@
 					<span></span>
 					<span></span>
 				</button>
-				<ul class="nav-links" id="nav-links">
-					<li><a href="../annulaire.html">Accueil</a></li>
-					<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-					<li><a href="nouveaute.html">Nouveautés</a></li>
-					<li><a href="abonnement.html" class="active" aria-current="page">Abonnements</a></li>
-					<li><a href="sondage.html">Sondage</a></li>
-					<li><a href="../annulaire.html#contact">Contact</a></li>
-					<li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
-					<li>
-						<a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a>
-					</li>
-				</ul>
+          <nav>
+            <ul class="nav-links" id="nav-links">
+              <li><a href="../annulaire.html">Accueil</a></li>
+              <li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+              <li><a href="nouveaute.html">Nouveautés</a></li>
+              <li><a href="abonnement.html" class="active" aria-current="page">Abonnements</a></li>
+              <li><a href="sondage.html">Sondage</a></li>
+              <li><a href="../annulaire.html#contact">Contact</a></li>
+              <li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
+              <li>
+                <a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a>
+              </li>
+            </ul>
+          </nav>
 			</div>
-		</nav>
-
+		</header>
 		<!-- Section Abonnements -->
-		<section class="abonnement-section">
+		<main role="main" class="abonnement-section">
 			<div class="container">
 				<div class="abonnement-header">
 					<h1>Nos Formules d'Abonnement</h1>
@@ -275,7 +276,7 @@
 					</dd>
 				</dl>
 			</div>
-		</section>
+		</main>
 
 		<!-- Panier Modal -->
 		<div id="panier-modal" class="modal">
@@ -291,20 +292,22 @@
 		</div>
 
 		<!-- Footer -->
-		<footer class="footer">
+		<footer role="contentinfo" class="footer">
 			<div class="container">
 				<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
 				<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
 				<div class="footer-extra">
-					<ul class="footer-list">
-						<li><a href="../annulaire.html">Accueil</a></li>
-						<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-						<li><a href="nouveaute.html">Nouveautés</a></li>
-						<li><a href="abonnement.html">Abonnements</a></li>
-						<li><a href="sondage.html">Sondage</a></li>
-						<li><a href="../annulaire.html#contact">Contact</a></li>
-						<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
-					</ul>
+            <nav role="navigation" aria-label="Menu de navigation pied de page">
+                <ul class="footer-list">
+                    <li><a href="../annulaire.html">Accueil</a></li>
+                    <li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+                    <li><a href="nouveaute.html">Nouveautés</a></li>
+                    <li><a href="abonnement.html">Abonnements</a></li>
+                    <li><a href="sondage.html">Sondage</a></li>
+                    <li><a href="../annulaire.html#contact">Contact</a></li>
+                    <li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
+                </ul>
+            </nav>
 				</div>
 			</div>
 		</footer>
