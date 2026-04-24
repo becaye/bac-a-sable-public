@@ -140,7 +140,6 @@ body {
   color: var(--white) !important;
   padding: 8px 16px;
   border-radius: var(--radius-sm);
-  cursor: pointer;
   transition: background var(--transition-base);
 }
 
@@ -153,7 +152,6 @@ body {
   color: var(--white) !important;
   padding: 8px 16px;
   border-radius: var(--radius-sm);
-  cursor: pointer;
   transition: background var(--transition-base);
 }
 
@@ -196,7 +194,6 @@ body {
   border-radius: var(--radius-sm);
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
   text-align: center;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
@@ -243,6 +240,7 @@ body {
 }
 
 .focus-produit-card {
+  position: relative;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 30px;
@@ -251,26 +249,24 @@ body {
   overflow: hidden;
   border: 1px solid rgba(108, 99, 255, 0.15);
   box-shadow: 0 18px 44px rgba(108, 99, 255, 0.18);
-  position: relative;
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.focus-produit-card:hover {
-  transform: translateY(-6px) scale(1.005);
-  box-shadow: 0 28px 60px rgba(108, 99, 255, 0.28);
+.focus-produit-card.v1 .focus-produit-link::before{
+  content: ''; /* 1 */
+  position: absolute; /* 2 */
+  inset: 0; /* 2 */
+  z-index: 1; /* 3 */
+  cursor: pointer; /* 1 */
+  border: 2px solid transparent; /* 1 */
 }
-
-.focus-produit-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 0, 110, 0.04));
+.focus-produit-card.v1 .focus-produit-link:hover::before,
+.focus-produit-card.v1 .focus-produit-link:focus::before {
+  border-color: var(--primary-color); /* 1 */
 }
 
 /* Wrapper image + badge flottant */
 .focus-produit-image-wrapper {
-  position: relative;
   grid-column: 1;
   overflow: hidden;
 }
@@ -305,21 +301,13 @@ body {
   transition: transform 0.5s ease;
 }
 
-.focus-produit-card:hover .focus-produit-image {
+/* .focus-produit-card:hover .focus-produit-image {
   transform: scale(1.04);
-}
+} */
 
 .focus-produit-content {
   padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  grid-column: 2;
-  position: relative;
-  z-index: 1;
   background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 .focus-produit-titre {
@@ -333,12 +321,14 @@ body {
   font-size: 15px;
   color: #555;
   line-height: 1.7;
+  margin: 14px 0;
 }
 
 .focus-produit-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin: 14px 0 30px 0;
 }
 
 .focus-tag {
@@ -353,13 +343,12 @@ body {
 }
 
 .focus-produit-link {
-  margin-top: 6px;
-  width: fit-content;
   background: linear-gradient(135deg, var(--primary-color), #867dff);
   color: var(--white);
   text-decoration: none;
   font-weight: 700;
   padding: 11px 18px;
+  margin: 20px 0;
   border-radius: var(--radius-sm);
   box-shadow: 0 8px 18px rgba(108, 99, 255, 0.35);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -389,7 +378,6 @@ body {
 
 .actualite-card,
 .livre-card {
-  cursor: pointer;
 }
 
 .actualite-card:hover,
@@ -461,7 +449,6 @@ body {
   background: var(--white);
   color: var(--primary-color);
   border-radius: 25px;
-  cursor: pointer;
   transition: all 0.3s;
   font-weight: 500;
 }
@@ -637,7 +624,6 @@ body {
   color: var(--white);
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-weight: bold;
   transition: background 0.3s;
 }
@@ -683,7 +669,6 @@ body {
   float: right;
   font-size: 28px;
   font-weight: bold;
-  cursor: pointer;
   color: var(--text-color);
 }
 
@@ -725,7 +710,6 @@ body {
   border: none;
   padding: 5px 10px;
   border-radius: 3px;
-  cursor: pointer;
   margin-left: 10px;
 }
 
@@ -921,14 +905,12 @@ body {
 .form-group.checkbox input {
   width: 20px;
   height: 20px;
-  cursor: pointer;
   margin-top: 2px;
 }
 
 .form-group.checkbox .checkbox-label {
   font-size: 14px;
   color: var(--text-muted-1);
-  cursor: pointer;
   font-weight: 400;
   margin: 0;
 }
@@ -1211,7 +1193,6 @@ body {
 
 .faq-question {
   padding: 20px;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1307,7 +1288,6 @@ body {
   color: #666;
   font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
   transition: all 0.3s;
   position: relative;
   display: flex;
@@ -1491,7 +1471,6 @@ body {
   background: var(--white);
   color: var(--primary-color);
   border-radius: 5px;
-  cursor: pointer;
   font-weight: 600;
   transition: all 0.3s;
 }
@@ -1503,7 +1482,6 @@ body {
 
 .pagination-btn:disabled {
   opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .pagination-numbers {
@@ -1520,7 +1498,6 @@ body {
   background: var(--white);
   color: var(--text-color);
   border-radius: 5px;
-  cursor: pointer;
   font-weight: 600;
   transition: all 0.3s;
   display: flex;
@@ -1644,7 +1621,6 @@ body {
 
 .star-label {
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.2s, filter 0.2s;
   user-select: none;
   filter: grayscale(100%);
@@ -1665,7 +1641,6 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
   padding: 12px;
   border-radius: 6px;
   transition: all 0.3s;
@@ -1679,7 +1654,6 @@ body {
 
 .radio-label input[type="radio"],
 .checkbox-label input[type="checkbox"] {
-  cursor: pointer;
   width: 18px;
   height: 18px;
   accent-color: var(--primary-color);
@@ -2017,7 +1991,6 @@ body {
   border-radius: 5px;
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
   transition: all 0.3s;
 }
 
@@ -2038,7 +2011,6 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  cursor: pointer;
   font-size: 24px;
   display: flex;
   align-items: center;
@@ -2069,7 +2041,6 @@ body {
   height: 12px;
   border-radius: 50%;
   background: #ddd;
-  cursor: pointer;
   transition: all 0.3s;
   border: 2px solid transparent;
 }
@@ -2412,7 +2383,6 @@ body {
   height: 24px;
   background: transparent;
   border: none;
-  cursor: pointer;
   z-index: 1001;
 }
 
@@ -2573,15 +2543,4 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-
-.focus-produit-section.v2{
-  position: relative; /* 1 */
-}
-.focus-produit-section.v2 .focus-produit-link::before{
-  content: ''; /* 1 */
-  position: absolute; /* 2 */
-  inset: 0; /* 2 */
-  z-index: 1; /* 3 */
 }
