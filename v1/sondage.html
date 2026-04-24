@@ -1,371 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Sondage Client - AudioBooks</title>
-	<link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-
-<!-- Skip Links -->
-<div class="skip-links-container">
-	<div class="container">
-		<nav role="navigation" aria-label="Menu de navigation rapide">
-			<ul class="skip-links">
-				<li><a class="skip-link" href="#main-content">Aller au contenu principal</a></li>
-				<li><a class="skip-link" href="#footer-content">Aller au pied de page</a></li>
-			</ul>
-		</nav>
-	</div>
-</div>
-
-<!-- Navigation -->
-<header role="banner" class="navbar">
-	<div class="nav-container">
-		<p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
-		<button class="burger-menu" id="burger-menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
-		<nav role="navigation" aria-label="Menu de navigation principal">
-			<ul class="nav-links" id="nav-links">
-				<li><a href="../annulaire.html">Accueil</a></li>
-				<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-				<li><a href="nouveaute.html">Nouveautés</a></li>
-				<li><a href="abonnement.html">Abonnements</a></li>
-				<li><a href="sondage.html" class="active" aria-current="page">Sondage</a></li>
-				<li><a href="../annulaire.html#contact">Contact</a></li>
-				<li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
-				<li><a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
-
-<!-- Section Sondage -->
-<main id="main-content" role="main">
-	<section id="sondage" class="sondage-section">
-		<div class="container">
-			<div class="sondage-header">
-				<h1>Votre Avis Compte Pour Nous</h1>
-				<p class="sondage-description">Aidez-nous à améliorer AudioBooks en répondant à ce court sondage (3 min)</p>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sondage Client - AudioBooks</title>
+		<link rel="icon" href="../favicon-unicorn.svg" type="image/svg" />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body>
+		<!-- Skip Links -->
+		<div class="skip-links-container">
+			<div class="container">
+				<nav role="navigation" aria-label="Menu de navigation rapide">
+					<ul class="skip-links">
+						<li><a class="skip-link" href="#main-content">Aller au contenu principal</a></li>
+						<li><a class="skip-link" href="#footer-content">Aller au pied de page</a></li>
+					</ul>
+				</nav>
 			</div>
+		</div>
 
-			<div id="sondage-form-container" class="sondage-form-container">
-				<form id="sondage-form" class="sondage-form">
-					<!-- Barre de progression -->
-					<div class="sondage-progress">
-						<div class="progress-bar">
-							<div id="progress-fill" class="progress-fill"></div>
-						</div>
-						<p class="progress-text"><span id="question-count">1</span> / 10 questions</p>
-					</div>
-
-					<!-- Question 1: Satisfaction Globale -->
-					<div class="sondage-question">
-						<label class="question-label" for="evaluation">
-							<strong>1. Comment évaluez-vous votre satisfaction générale envers AudioBooks?</strong>
-						</label>
-						<div id="evaluation" class="question-response stars">
-							<input type="radio" name="q1" value="5" id="q1-5" required>
-							<label for="q1-5" class="star-label">⭐⭐⭐⭐⭐</label>
-
-							<input type="radio" name="q1" value="4" id="q1-4">
-							<label for="q1-4" class="star-label">⭐⭐⭐⭐</label>
-
-							<input type="radio" name="q1" value="3" id="q1-3">
-							<label for="q1-3" class="star-label">⭐⭐⭐</label>
-
-							<input type="radio" name="q1" value="2" id="q1-2">
-							<label for="q1-2" class="star-label">⭐⭐</label>
-
-							<input type="radio" name="q1" value="1" id="q1-1">
-							<label for="q1-1" class="star-label">⭐</label>
-						</div>
-					</div>
-
-					<!-- Question 2: Facilité d'utilisation -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>2. Trouvez-vous le site facile à utiliser?</strong>
-						</legend>
-						<div class="question-response">
-							<label class="radio-label">
-								<input type="radio" name="q2" value="Très facile" required>
-								<span>Très facile</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q2" value="Facile">
-								<span>Facile</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q2" value="Neutre">
-								<span>Neutre</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q2" value="Difficile">
-								<span>Difficile</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q2" value="Très difficile">
-								<span>Très difficile</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Question 3: Qualité du catalogue -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>3. Comment évaluez-vous la qualité de notre catalogue?</strong>
-						</legend>
-						<div class="question-response">
-							<label class="radio-label">
-								<input type="radio" name="q3" value="Excellente" required>
-								<span>Excellente</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q3" value="Bonne">
-								<span>Bonne</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q3" value="Satisfaisante">
-								<span>Satisfaisante</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q3" value="À améliorer">
-								<span>À améliorer</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Question 4: Qualité Audio -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>4. Êtes-vous satisfait(e) de la qualité audio des livres?</strong>
-						</legend>
-						<div class="question-response">
-							<label class="radio-label">
-								<input type="radio" name="q4" value="Très satisfait" required>
-								<span>Très satisfait(e)</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q4" value="Satisfait">
-								<span>Satisfait(e)</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q4" value="Neutre">
-								<span>Neutre</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q4" value="Insatisfait">
-								<span>Insatisfait(e)</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Question 5: Service Client -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>5. Comment évaluez-vous notre service client?</strong>
-						</legend>
-						<div class="question-response">
-							<label class="radio-label">
-								<input type="radio" name="q5" value="Excellent" required>
-								<span>Excellent</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q5" value="Bon">
-								<span>Bon</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q5" value="Moyen">
-								<span>Moyen</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q5" value="Mauvais">
-								<span>Mauvais</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q5" value="N'a pas utilisé">
-								<span>N'a pas utilisé</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Question 6: Recommandation -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>6. Recommanderiez-vous AudioBooks à vos amis?</strong>
-						</legend>
-						<div class="question-response">
-							<label class="radio-label">
-								<input type="radio" name="q6" value="Oui, définitivement" required>
-								<span>Oui, définitivement</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q6" value="Probablement">
-								<span>Probablement</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q6" value="Peut-être">
-								<span>Peut-être</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q6" value="Probablement pas">
-								<span>Probablement pas</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q6" value="Non, définitivement pas">
-								<span>Non, définitivement pas</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Question 7: Découverte -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>7. Comment avez-vous découvert AudioBooks? (plusieurs réponses possibles)</strong>
-						</legend>
-						<div class="question-response">
-							<label class="checkbox-label">
-								<input type="checkbox" name="q7" value="Recherche Google">
-								<span>Recherche Google</span>
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" name="q7" value="Recommandation amis">
-								<span>Recommandation d'amis</span>
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" name="q7" value="Réseaux sociaux">
-								<span>Réseaux sociaux</span>
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" name="q7" value="Publicité">
-								<span>Publicité</span>
-							</label>
-							<label class="checkbox-label">
-								<input type="checkbox" name="q7" value="Autre">
-								<span>Autre</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Question 8: Aspect préféré -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>8. Quel aspect d'AudioBooks appréciez-vous le plus?</strong>
-						</legend>
-						<div class="question-response">
-							<textarea name="q8" placeholder="Partagez votre avis..." maxlength="300" rows="4"></textarea>
-							<small>Maximum 300 caractères</small>
-						</div>
-					</fieldset>
-
-					<!-- Question 9: Améliorations -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>9. Qu'aimerions-nous améliorer selon vous?</strong>
-						</legend>
-						<div class="question-response">
-							<textarea name="q9" placeholder="Vos suggestions..." maxlength="300" rows="4"></textarea>
-							<small>Maximum 300 caractères</small>
-						</div>
-					</fieldset>
-
-					<!-- Question 10: Intérêt Premium -->
-					<fieldset class="sondage-question">
-						<legend class="question-label">
-							<strong>10. Seriez-vous intéressé(e) par nos formules d'abonnement premium?</strong>
-						</legend>
-						<div class="question-response">
-							<label class="radio-label">
-								<input type="radio" name="q10" value="Oui, très intéressé" required>
-								<span>Oui, très intéressé(e)</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q10" value="Oui, un peu intéressé">
-								<span>Oui, un peu intéressé(e)</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q10" value="Pas sûr">
-								<span>Pas sûr(e)</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q10" value="Non, pas intéressé">
-								<span>Non, pas intéressé(e)</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="q10" value="Déjà abonné">
-								<span>Déjà abonné(e)</span>
-							</label>
-						</div>
-					</fieldset>
-
-					<!-- Bouton Soumettre -->
-					<div class="sondage-actions">
-						<button type="submit" class="btn-primary btn-large">Soumettre le Sondage</button>
-						<p class="confidentialite">Vos réponses sont confidentielles et nous aident à vous offrir un meilleur
-							service</p>
-					</div>
-				</form>
+		<!-- Navigation -->
+		<header role="banner" class="navbar">
+			<div class="nav-container">
+				<p class="logo"><span aria-hidden="true">🎧</span> AudioBooks</p>
+				<button class="burger-menu" id="burger-menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav role="navigation" aria-label="Menu de navigation principal">
+					<ul class="nav-links" id="nav-links">
+						<li><a href="../annulaire.html">Accueil</a></li>
+						<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+						<li><a href="nouveaute.html">Nouveautés</a></li>
+						<li><a href="abonnement.html">Abonnements</a></li>
+						<li><a href="sondage.html" class="active" aria-current="page">Sondage</a></li>
+						<li><a href="../annulaire.html#contact">Contact</a></li>
+						<li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
+						<li>
+							<a href="#" id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></a>
+						</li>
+					</ul>
+				</nav>
 			</div>
+		</header>
 
-			<!-- Message de Confirmation -->
-			<div id="sondage-confirmation" class="sondage-confirmation" style="display:none;">
-				<div class="confirmation-content">
-					<div class="confirmation-icon">✅</div>
-					<h2>Merci beaucoup!</h2>
-					<p>Votre sondage a été enregistré avec succès.</p>
-					<p class="confirmation-message">Votre avis est précieux et nous aide à améliorer AudioBooks
-						continuellement.</p>
-					<button class="btn-primary" onclick="retournerAccueil()">Retour à l'accueil</button>
+		<!-- Section Sondage -->
+		<main id="main-content" role="main">
+			<section id="sondage" class="sondage-section">
+				<div class="container">
+					<div class="sondage-header">
+						<h1>Votre Avis Compte Pour Nous</h1>
+						<p class="sondage-description">Aidez-nous à améliorer AudioBooks en répondant à ce court sondage (3 min)</p>
+					</div>
+
+					<div id="sondage-form-container" class="sondage-form-container">
+						<form id="sondage-form" class="sondage-form">
+							<!-- Barre de progression -->
+							<div class="sondage-progress">
+								<div class="progress-bar">
+									<div id="progress-fill" class="progress-fill"></div>
+								</div>
+								<p class="progress-text"><span id="question-count">1</span> / 10 questions</p>
+							</div>
+
+							<!-- Question 1: Satisfaction Globale -->
+							<div class="sondage-question">
+								<label class="question-label" for="evaluation">
+									<strong>1. Comment évaluez-vous votre satisfaction générale envers AudioBooks?</strong>
+								</label>
+								<div id="evaluation" class="question-response stars">
+									<input type="radio" name="q1" value="5" id="q1-5" required />
+									<label for="q1-5" class="star-label">⭐⭐⭐⭐⭐</label>
+
+									<input type="radio" name="q1" value="4" id="q1-4" />
+									<label for="q1-4" class="star-label">⭐⭐⭐⭐</label>
+
+									<input type="radio" name="q1" value="3" id="q1-3" />
+									<label for="q1-3" class="star-label">⭐⭐⭐</label>
+
+									<input type="radio" name="q1" value="2" id="q1-2" />
+									<label for="q1-2" class="star-label">⭐⭐</label>
+
+									<input type="radio" name="q1" value="1" id="q1-1" />
+									<label for="q1-1" class="star-label">⭐</label>
+								</div>
+							</div>
+
+							<!-- Question 2: Facilité d'utilisation -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>2. Trouvez-vous le site facile à utiliser?</strong>
+								</legend>
+								<div class="question-response">
+									<label class="radio-label">
+										<input type="radio" name="q2" value="Très facile" required />
+										<span>Très facile</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q2" value="Facile" />
+										<span>Facile</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q2" value="Neutre" />
+										<span>Neutre</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q2" value="Difficile" />
+										<span>Difficile</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q2" value="Très difficile" />
+										<span>Très difficile</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Question 3: Qualité du catalogue -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>3. Comment évaluez-vous la qualité de notre catalogue?</strong>
+								</legend>
+								<div class="question-response">
+									<label class="radio-label">
+										<input type="radio" name="q3" value="Excellente" required />
+										<span>Excellente</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q3" value="Bonne" />
+										<span>Bonne</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q3" value="Satisfaisante" />
+										<span>Satisfaisante</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q3" value="À améliorer" />
+										<span>À améliorer</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Question 4: Qualité Audio -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>4. Êtes-vous satisfait(e) de la qualité audio des livres?</strong>
+								</legend>
+								<div class="question-response">
+									<label class="radio-label">
+										<input type="radio" name="q4" value="Très satisfait" required />
+										<span>Très satisfait(e)</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q4" value="Satisfait" />
+										<span>Satisfait(e)</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q4" value="Neutre" />
+										<span>Neutre</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q4" value="Insatisfait" />
+										<span>Insatisfait(e)</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Question 5: Service Client -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>5. Comment évaluez-vous notre service client?</strong>
+								</legend>
+								<div class="question-response">
+									<label class="radio-label">
+										<input type="radio" name="q5" value="Excellent" required />
+										<span>Excellent</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q5" value="Bon" />
+										<span>Bon</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q5" value="Moyen" />
+										<span>Moyen</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q5" value="Mauvais" />
+										<span>Mauvais</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q5" value="N'a pas utilisé" />
+										<span>N'a pas utilisé</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Question 6: Recommandation -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>6. Recommanderiez-vous AudioBooks à vos amis?</strong>
+								</legend>
+								<div class="question-response">
+									<label class="radio-label">
+										<input type="radio" name="q6" value="Oui, définitivement" required />
+										<span>Oui, définitivement</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q6" value="Probablement" />
+										<span>Probablement</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q6" value="Peut-être" />
+										<span>Peut-être</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q6" value="Probablement pas" />
+										<span>Probablement pas</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q6" value="Non, définitivement pas" />
+										<span>Non, définitivement pas</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Question 7: Découverte -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>7. Comment avez-vous découvert AudioBooks? (plusieurs réponses possibles)</strong>
+								</legend>
+								<div class="question-response">
+									<label class="checkbox-label">
+										<input type="checkbox" name="q7" value="Recherche Google" />
+										<span>Recherche Google</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="q7" value="Recommandation amis" />
+										<span>Recommandation d'amis</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="q7" value="Réseaux sociaux" />
+										<span>Réseaux sociaux</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="q7" value="Publicité" />
+										<span>Publicité</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="q7" value="Autre" />
+										<span>Autre</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Question 8: Aspect préféré -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>8. Quel aspect d'AudioBooks appréciez-vous le plus?</strong>
+								</legend>
+								<div class="question-response">
+									<textarea name="q8" placeholder="Partagez votre avis..." maxlength="300" rows="4"></textarea>
+									<small>Maximum 300 caractères</small>
+								</div>
+							</fieldset>
+
+							<!-- Question 9: Améliorations -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>9. Qu'aimerions-nous améliorer selon vous?</strong>
+								</legend>
+								<div class="question-response">
+									<textarea name="q9" placeholder="Vos suggestions..." maxlength="300" rows="4"></textarea>
+									<small>Maximum 300 caractères</small>
+								</div>
+							</fieldset>
+
+							<!-- Question 10: Intérêt Premium -->
+							<fieldset class="sondage-question">
+								<legend class="question-label">
+									<strong>10. Seriez-vous intéressé(e) par nos formules d'abonnement premium?</strong>
+								</legend>
+								<div class="question-response">
+									<label class="radio-label">
+										<input type="radio" name="q10" value="Oui, très intéressé" required />
+										<span>Oui, très intéressé(e)</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q10" value="Oui, un peu intéressé" />
+										<span>Oui, un peu intéressé(e)</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q10" value="Pas sûr" />
+										<span>Pas sûr(e)</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q10" value="Non, pas intéressé" />
+										<span>Non, pas intéressé(e)</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="q10" value="Déjà abonné" />
+										<span>Déjà abonné(e)</span>
+									</label>
+								</div>
+							</fieldset>
+
+							<!-- Bouton Soumettre -->
+							<div class="sondage-actions">
+								<button type="submit" class="btn-primary btn-large">Soumettre le Sondage</button>
+								<p class="confidentialite">Vos réponses sont confidentielles et nous aident à vous offrir un meilleur service</p>
+							</div>
+						</form>
+					</div>
+
+					<!-- Message de Confirmation -->
+					<div id="sondage-confirmation" class="sondage-confirmation" style="display: none">
+						<div class="confirmation-content">
+							<div class="confirmation-icon">✅</div>
+							<h2>Merci beaucoup!</h2>
+							<p>Votre sondage a été enregistré avec succès.</p>
+							<p class="confirmation-message">Votre avis est précieux et nous aide à améliorer AudioBooks continuellement.</p>
+							<button class="btn-primary" onclick="retournerAccueil()">Retour à l'accueil</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Panier Modal -->
+		<div id="panier-modal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Votre Panier</h2>
+				<div id="panier-items"></div>
+				<div class="panier-total">
+					<strong>Total: <span id="total">0,00</span>€</strong>
+				</div>
+				<button class="btn-primary" onclick="commander()">Commander</button>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer-content" class="footer" role="contentinfo">
+			<div class="container">
+				<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
+				<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
+				<div class="footer-extra">
+					<nav role="navigation" aria-label="Menu de navigation pied de page">
+						<ul class="footer-list">
+							<li><a href="../annulaire.html">Accueil</a></li>
+							<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+							<li><a href="nouveaute.html">Nouveautés</a></li>
+							<li><a href="abonnement.html">Abonnements</a></li>
+							<li><a href="sondage.html" aria-current="page">Sondage</a></li>
+							<li><a href="../annulaire.html#contact">Contact</a></li>
+							<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		</div>
-	</section>
+		</footer>
 
-</main>
-
-<!-- Panier Modal -->
-<div id="panier-modal" class="modal">
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<h2>Votre Panier</h2>
-		<div id="panier-items"></div>
-		<div class="panier-total">
-			<strong>Total: <span id="total">0,00</span>€</strong>
-		</div>
-		<button class="btn-primary" onclick="commander()">Commander</button>
-	</div>
-</div>
-
-<!-- Footer -->
-<footer id="footer-content" class="footer" role="contentinfo">
-	<div class="container">
-		<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
-		<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
-		<div class="footer-extra">
-			<nav role="navigation" aria-label="Menu de navigation pied de page">
-				<ul class="footer-list">
-					<li><a href="../annulaire.html">Accueil</a></li>
-					<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-					<li><a href="nouveaute.html">Nouveautés</a></li>
-					<li><a href="abonnement.html">Abonnements</a></li>
-					<li><a href="sondage.html" aria-current="page">Sondage</a></li>
-					<li><a href="../annulaire.html#contact">Contact</a></li>
-					<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</footer>
-
-<script src="../script/script.js"></script>
-<script src="../script/sondage.js"></script>
-<!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-				data-cf-beacon='{"token": "7819cac8bb7a40e09e5ded4d0fcb000e"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+		<script src="../script/script.js"></script>
+		<script src="../script/sondage.js"></script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7819cac8bb7a40e09e5ded4d0fcb000e"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+	</body>
 </html>

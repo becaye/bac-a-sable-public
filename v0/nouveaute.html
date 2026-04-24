@@ -1,110 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Nouveautés - AudioBooks</title>
-	<link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-<!-- Navigation -->
-<nav class="navbar">
-	<div class="nav-container">
-		<div class="logo">🎧 AudioBooks</div>
-		<ul class="nav-links">
-			<li><a href="../pouce.html">Accueil</a></li>
-			<li><a href="../pouce.html#catalogue">Catalogue</a></li>
-			<li><a href="nouveaute.html" class="active">Nouveautés</a></li>
-			<li><a href="abonnement.html">Abonnements</a></li>
-			<li><a href="sondage.html">Sondage</a></li>
-			<li><a href="../pouce.html#contact">Contact</a></li>
-			<li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
-			<li>
-				<div id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></div>
-			</li>
-		</ul>
-	</div>
-</nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nouveautés - AudioBooks</title>
+		<link rel="icon" href="../favicon-poo.svg" type="image/svg" />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="logo">🎧 AudioBooks</div>
+				<ul class="nav-links">
+					<li><a href="../pouce.html">Accueil</a></li>
+					<li><a href="../pouce.html#catalogue">Catalogue</a></li>
+					<li><a href="nouveaute.html" class="active">Nouveautés</a></li>
+					<li><a href="abonnement.html">Abonnements</a></li>
+					<li><a href="sondage.html">Sondage</a></li>
+					<li><a href="../pouce.html#contact">Contact</a></li>
+					<li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
+					<li>
+						<div id="panier-btn" class="panier-btn">🛒 Panier <span id="panier-count">0</span></div>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
-<!-- Section Nouveautés -->
-<div id="main-content" class="nouveaute-section">
-	<div class="container">
-		<div class="nouveaute-header">
-			<h1>Nos Nouveautés</h1>
-			<p class="nouveaute-description">Découvrez les derniers titres ajoutés à notre bibliothèque</p>
-		</div>
+		<!-- Section Nouveautés -->
+		<div id="main-content" class="nouveaute-section">
+			<div class="container">
+				<div class="nouveaute-header">
+					<h1>Nos Nouveautés</h1>
+					<p class="nouveaute-description">Découvrez les derniers titres ajoutés à notre bibliothèque</p>
+				</div>
 
-		<!-- Onglets Catégories -->
-		<div class="onglets-container">
-			<div class="onglets-list">
-				<button class="onglet-btn active" data-categorie="tous">
-					<span class="onglet-icon">📚</span> Tous
-				</button>
-				<button class="onglet-btn" data-categorie="roman">
-					<span class="onglet-icon">📖</span> Romans
-				</button>
-				<button class="onglet-btn" data-categorie="developpement">
-					<span class="onglet-icon">💻</span> Développement
-				</button>
-				<button class="onglet-btn" data-categorie="jeunesse">
-					<span class="onglet-icon">🎈</span> Jeunesse
-				</button>
+				<!-- Onglets Catégories -->
+				<div class="onglets-container">
+					<div class="onglets-list">
+						<button class="onglet-btn active" data-categorie="tous"><span class="onglet-icon">📚</span> Tous</button>
+						<button class="onglet-btn" data-categorie="roman"><span class="onglet-icon">📖</span> Romans</button>
+						<button class="onglet-btn" data-categorie="developpement"><span class="onglet-icon">💻</span> Développement</button>
+						<button class="onglet-btn" data-categorie="jeunesse"><span class="onglet-icon">🎈</span> Jeunesse</button>
+					</div>
+				</div>
+
+				<!-- Grille des Nouveautés -->
+				<div class="nouveaute-grid" id="nouveaute-grid">
+					<!-- Les nouveautés seront générées par JavaScript -->
+				</div>
+
+				<!-- Pagination -->
+				<div class="pagination-container">
+					<div class="pagination-info" id="pagination-info"></div>
+					<div class="pagination-controls">
+						<button class="pagination-btn" id="prev-btn" onclick="allerPagePrecedente()">← Précédente</button>
+						<div class="pagination-numbers" id="pagination-numbers"></div>
+						<button class="pagination-btn" id="next-btn" onclick="allerPageSuivante()">Suivante →</button>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<!-- Grille des Nouveautés -->
-		<div class="nouveaute-grid" id="nouveaute-grid">
-			<!-- Les nouveautés seront générées par JavaScript -->
-		</div>
-
-		<!-- Pagination -->
-		<div class="pagination-container">
-			<div class="pagination-info" id="pagination-info"></div>
-			<div class="pagination-controls">
-				<button class="pagination-btn" id="prev-btn" onclick="allerPagePrecedente()">← Précédente</button>
-				<div class="pagination-numbers" id="pagination-numbers"></div>
-				<button class="pagination-btn" id="next-btn" onclick="allerPageSuivante()">Suivante →</button>
+		<!-- Panier Modal -->
+		<div id="panier-modal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Votre Panier</h2>
+				<div id="panier-items"></div>
+				<div class="panier-total">
+					<strong>Total: <span id="total">0,00</span>€</strong>
+				</div>
+				<button class="btn-primary" onclick="commander()">Commander</button>
 			</div>
 		</div>
-	</div>
-</div>
 
-<!-- Panier Modal -->
-<div id="panier-modal" class="modal">
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<h2>Votre Panier</h2>
-		<div id="panier-items"></div>
-		<div class="panier-total">
-			<strong>Total: <span id="total">0,00</span>€</strong>
+		<!-- Footer -->
+		<div id="footer-content" class="footer">
+			<div class="container">
+				<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
+				<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
+				<div class="footer-extra">
+					<ul class="footer-list">
+						<li><a href="../annulaire.html">Accueil</a></li>
+						<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+						<li><a href="nouveaute.html">Nouveautés</a></li>
+						<li><a href="abonnement.html">Abonnements</a></li>
+						<li><a href="sondage.html">Sondage</a></li>
+						<li><a href="../annulaire.html#contact">Contact</a></li>
+						<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-		<button class="btn-primary" onclick="commander()">Commander</button>
-	</div>
-</div>
 
-<!-- Footer -->
-<div id="footer-content" class="footer">
-	<div class="container">
-		<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
-		<p>Email: contact@audiobooks.fr | Tél: +33 1 23 45 67 89</p>
-		<div class="footer-extra">
-			<ul class="footer-list">
-				<li><a href="../annulaire.html">Accueil</a></li>
-				<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
-				<li><a href="nouveaute.html">Nouveautés</a></li>
-				<li><a href="abonnement.html">Abonnements</a></li>
-				<li><a href="sondage.html">Sondage</a></li>
-				<li><a href="../annulaire.html#contact">Contact</a></li>
-				<li class="footer-accessibility">Accessibilité : Super totalement conforme.</li>
-			</ul>
-		</div>
-	</div>
-</div>
-
-<script src="../script/script.js"></script>
-<script src="../script/nouveaute.js"></script>
-<!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-				data-cf-beacon='{"token": "7819cac8bb7a40e09e5ded4d0fcb000e"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+		<script src="../script/script.js"></script>
+		<script src="../script/nouveaute.js"></script>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7819cac8bb7a40e09e5ded4d0fcb000e"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+	</body>
 </html>
