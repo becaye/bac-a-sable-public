@@ -80,12 +80,12 @@
 			<section id="catalogue" class="catalogue">
 				<div class="container">
 					<h2 class="titre_moyen">Notre Catalogue</h2>
-					<div class="filtres">
-						<button class="filtre-btn active" data-filtre="tous">Tous</button>
-						<button class="filtre-btn" data-filtre="roman">Roman</button>
-						<button class="filtre-btn" data-filtre="developpement">Développement</button>
-						<button class="filtre-btn" data-filtre="jeunesse">Jeunesse</button>
-					</div>
+					<ul class="filtres" aria-label="Filtres">
+						<li><button class="filtre-btn active" data-filtre="tous">Tous</button></li>
+						<li><button class="filtre-btn" data-filtre="roman">Roman</button></li>
+						<li><button class="filtre-btn" data-filtre="developpement">Développement</button></li>
+						<li><button class="filtre-btn" data-filtre="jeunesse">Jeunesse</button></li>
+					</ul>
 					<ul class="livres-grid" id="livres-grid">
 						<!-- Les livres seront générés par JavaScript -->
 					</ul>
@@ -107,12 +107,12 @@
 								intelligent, et synchronisation instantanee entre tous vos appareils. Concu pour les auditeurs exigeants, ce service transforme chaque moment d'ecoute en une experience fluide,
 								immersive et adaptee a votre rythme.
 							</p>
-							<div class="focus-produit-tags">
-								<span class="focus-tag">Nouveauté</span>
-								<span class="focus-tag">Sans engagement</span>
-								<span class="focus-tag">Hors ligne</span>
-								<span class="focus-tag">Recommandations IA</span>
-							</div>
+							<ul class="focus-produit-tags">
+								<li class="focus-tag">Nouveauté</li>
+								<li class="focus-tag">Sans engagement</li>
+								<li class="focus-tag">Hors ligne</li>
+								<li class="focus-tag">Recommandations IA</li>
+							</ul>
 							<a class="focus-produit-link" href="#">Decouvrir notre service</a>
 						</div>
 					</article>
