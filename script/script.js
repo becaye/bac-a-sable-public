@@ -365,7 +365,7 @@ function afficherLivres(filtre) {
                 <div class="livre-description">${livre.description}</div>
                 <div class="livre-duree">${useAccessibleDuree ? `<span aria-hidden="true">⏱️</span><span class="sr-only">Durée</span>` : '⏱️'} ${livre.duree}</div>
                 <div class="livre-prix">${livre.prix.toFixed(2)}€</div>
-                <button class="btn-ajouter" onclick="ajouterAuPanier(${livre.id})">Ajouter au panier</button>
+                <button class="btn-ajouter" onclick="ajouterAuPanier(${livre.id})">Ajouter au panier <span class="sr-only">${livre.titre}</span></button>
             </div>
         `;
         grid.appendChild(carte);
@@ -519,6 +519,10 @@ function initCarousel() {
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         slide.style.background = background;
+        let libellePanier = '🛒 Ajouter au Panier';
+        if (v2) {
+            libellePanier = `<span aria-hidden="true">🛒</span> Ajouter au Panier <span class="sr-only">${livre.titre}</span></span>`;
+        }
         slide.innerHTML = `
             <div class="carousel-slide-image">${livre.emoji}</div>
             <div class="carousel-slide-content">
@@ -536,7 +540,7 @@ function initCarousel() {
                     </div>
                 </div>
                 <div class="carousel-slide-price">${livre.prix.toFixed(2)}€</div>
-                <button class="carousel-btn-add" onclick="ajouterAuPanier(${livre.id}, 'carousel')">🛒 Ajouter au Panier</button>
+                <button class="carousel-btn-add" onclick="ajouterAuPanier(${livre.id}, 'carousel')">${libellePanier}</button>
             </div>
         `;
         carousel.appendChild(slide);
