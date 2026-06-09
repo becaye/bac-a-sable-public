@@ -522,7 +522,29 @@ function initCarousel() {
         let libellePanier = '🛒 Ajouter au Panier';
         if (v2) {
             libellePanier = `<span aria-hidden="true">🛒</span> Ajouter au Panier <span class="sr-only">${livre.titre}</span></span>`;
+            slide.innerHTML = `
+            <div class="carousel-slide-image">${livre.emoji}</div>
+            <div class="carousel-slide-content">
+                <h3 class="carousel-slide-title">${livre.titre}</h3>
+                <p class="carousel-slide-author">par ${livre.auteur}</p>
+                <p class="carousel-slide-description">${livre.description}</p>
+                <dl class="carousel-slide-details">
+                    
+                    <div class="carousel-slide-detail">
+                        <dt class="carousel-slide-detail-label">Durée</dt>
+                        <dd class="carousel-slide-detail-value">${livre.duree}</dd>
+                    </div>
+                    <div class="carousel-slide-detail">
+                        <dt class="carousel-slide-detail-label">Catégorie</dt>
+                        <dd class="carousel-slide-detail-value">${getCategorieLabel(livre.categorie)}</dd>
+                    </div>
+                </dl>
+                <p class="carousel-slide-price">${livre.prix.toFixed(2)}€</p>
+                <button class="carousel-btn-add" onclick="ajouterAuPanier(${livre.id}, 'carousel')">${libellePanier}</button>
+            </div>
+        `;
         }
+        else{
         slide.innerHTML = `
             <div class="carousel-slide-image">${livre.emoji}</div>
             <div class="carousel-slide-content">
@@ -542,7 +564,7 @@ function initCarousel() {
                 <div class="carousel-slide-price">${livre.prix.toFixed(2)}€</div>
                 <button class="carousel-btn-add" onclick="ajouterAuPanier(${livre.id}, 'carousel')">${libellePanier}</button>
             </div>
-        `;
+        `;}
         carousel.appendChild(slide);
     });
 
