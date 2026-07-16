@@ -1326,11 +1326,13 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
   margin-bottom: 50px;
+  list-style-type: none;
 }
 
 .nouvelle-card {
   display: flex;
   flex-direction: column;
+  
 }
 
 .nouvelle-card:hover {
@@ -2545,4 +2547,9 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.invert-visual-order{
+  display: flex;
+  flex-direction: column-reverse;
 }

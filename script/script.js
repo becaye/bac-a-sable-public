@@ -96,8 +96,8 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 // Utilisateurs
 let utilisateurs = JSON.parse(localStorage.getItem('utilisateurs')) || [];
 
-// Détection v2 (v2 ou annulaire.html)
-const v2 = window.location.href.includes('v1') || window.location.pathname.includes('annulaire.html');
+// Détection v1 (v1 ou annulaire.html)
+const v1 = window.location.href.includes('v1') || window.location.pathname.includes('annulaire.html');
 
 // Validation du formulaire de contact (globale)
 function validateContactForm() {
@@ -332,7 +332,7 @@ function afficherLivres(filtre) {
 
     livresFiltres.forEach((livre, index) => {
         let carte;
-        if(v2) 
+        if(v1) 
               carte = document.createElement('li');
         else
             carte = document.createElement('div');
@@ -520,7 +520,7 @@ function initCarousel() {
         slide.className = 'carousel-slide';
         slide.style.background = background;
         let libellePanier = '🛒 Ajouter au Panier';
-        if (v2) {
+        if (v1) {
             libellePanier = `<span aria-hidden="true">🛒</span> Ajouter au Panier <span class="sr-only">${livre.titre}</span></span>`;
             slide.innerHTML = `
             <div class="carousel-slide-image">${livre.emoji}</div>

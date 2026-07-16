@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Gestion des questions FAQ
-    if (v2) {
-        // ARIA disclosure pattern (v2)
+    if (v1) {
+        // ARIA disclosure pattern (v1)
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', function() {
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     } else {
-        // Ancien fonctionnement (pas v2) - structure div/div/div sans ARIA
+        // Ancien fonctionnement (pas v1) - structure div/div/div sans ARIA
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', function() {
                 // Trouver la reponse avec nextElementSibling (ancien HTML structure)

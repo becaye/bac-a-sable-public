@@ -74,7 +74,7 @@ function genererNouvelles(titres, categorie, count = 50) {
 
         nouvelles.push({
             id: `${categorie}-${i}`,
-            titre: `${titre} - ${i + 1}`,
+            titre: `${titre}`,
             auteur: auteur,
             prix: parseFloat(prix),
             categorie: categorie,
@@ -172,9 +172,6 @@ function afficherNouvelles() {
     const nouvellesAffichees = etatPagination.donnees.slice(debut, fin);
 
     nouvellesAffichees.forEach((nouvelle, index) => {
-        const carte = document.createElement('div');
-        carte.className = 'nouvelle-card';
-
         const couleurs = [
             { main: '#667eea', accent: '#764ba2' },
             { main: '#f093fb', accent: '#f5576c' },
@@ -188,6 +185,40 @@ function afficherNouvelles() {
             { main: '#f093fb', accent: '#f5576c' }
         ];
         const couleur = couleurs[index % couleurs.length];
+        let carte;
+        if(v1){
+        carte = document.createElement('li');
+        carte.className = 'nouvelle-card';
+
+        carte.innerHTML = `
+            <div class="nouvelle-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
+                <div class="nouvelle-emoji">${nouvelle.emoji}</div>
+                <div class="nouvelle-nouveau">🆕 NOUVEAU</div>
+            </div>
+            <div class="nouvelle-content">
+                <div class="invert-visual-order">
+                    <h3 class="nouvelle-titre">${nouvelle.titre}</h3>
+                    <p class="nouvelle-date">Ajouté: ${nouvelle.dateAjout}</p>
+                </div>
+                <p class="nouvelle-auteur">par ${nouvelle.auteur}</p>
+                <p class="nouvelle-categorie">${getCategorieLabel(nouvelle.categorie)}</p>
+                <p class="nouvelle-description">${nouvelle.description}</p>
+                <p class="nouvelle-duree">⏱️ ${nouvelle.duree}</p>
+                <p class="nouvelle-prix">${nouvelle.prix.toFixed(2)}€</p>
+                <div class="livre-extrait">
+                    <label class="extrait-label">🎧 Écoutez un extrait:</label>
+                    <audio class="extrait-audio" controls preload="none">
+                        <source src="${nouvelle.extrait}" type="audio/mpeg">
+                        Votre navigateur ne supporte pas l'élément audio.
+                    </audio>
+                </div>
+                <button class="btn-ajouter" onclick="ajouterAuPanier('${nouvelle.id}', '${nouvelle.titre}', ${nouvelle.prix})">Ajouter au panier <span class="sr-only"> - ${nouvelle.titre}</span></button>
+            </div>
+        `;
+        }
+        else{
+        carte = document.createElement('div');
+        carte.className = 'nouvelle-card';
 
         carte.innerHTML = `
             <div class="nouvelle-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
@@ -212,6 +243,7 @@ function afficherNouvelles() {
                 <button class="btn-ajouter" onclick="ajouterAuPanier('${nouvelle.id}', '${nouvelle.titre}', ${nouvelle.prix})">Ajouter au panier</button>
             </div>
         `;
+        }
         grid.appendChild(carte);
     });
 
