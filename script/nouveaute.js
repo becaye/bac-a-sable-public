@@ -133,15 +133,68 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Gestion des onglets
-    document.querySelectorAll('.onglet-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.onglet-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+    const onglets = Array.from(document.querySelectorAll('.onglet-btn'));
 
-            const categorie = this.dataset.categorie;
-            changerCategorie(categorie);
+    if (v1) {
+        // Pattern ARIA « Tabs with Automatic Activation » (W3C APG)
+        const panneau = document.getElementById('nouveaute-panel');
+
+        function activerOnglet(onglet, donnerFocus = true) {
+            onglets.forEach(o => {
+                const selectionne = o === onglet;
+                o.classList.toggle('active', selectionne);
+                o.setAttribute('aria-selected', selectionne ? 'true' : 'false');
+                o.setAttribute('tabindex', selectionne ? '0' : '-1');
+            });
+            if (donnerFocus) {
+                onglet.focus();
+            }
+            if (panneau) {
+                panneau.setAttribute('aria-labelledby', onglet.id);
+            }
+            changerCategorie(onglet.dataset.categorie);
+        }
+
+        onglets.forEach(onglet => {
+            onglet.addEventListener('click', function() {
+                activerOnglet(this, false);
+            });
+
+            onglet.addEventListener('keydown', function(e) {
+                const index = onglets.indexOf(this);
+                let cible;
+                switch (e.key) {
+                    case 'ArrowRight':
+                        cible = onglets[(index + 1) % onglets.length];
+                        break;
+                    case 'ArrowLeft':
+                        cible = onglets[(index - 1 + onglets.length) % onglets.length];
+                        break;
+                    case 'Home':
+                        cible = onglets[0];
+                        break;
+                    case 'End':
+                        cible = onglets.at(-1);
+                        break;
+                    default:
+                        return;
+                }
+                e.preventDefault();
+                // Activation automatique : la sélection suit le focus
+                activerOnglet(cible);
+            });
         });
-    });
+    } else {
+        onglets.forEach(btn => {
+            btn.addEventListener('click', function() {
+                onglets.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const categorie = this.dataset.categorie;
+                changerCategorie(categorie);
+            });
+        });
+    }
 
     // Affichage initial
     afficherNouvelles();

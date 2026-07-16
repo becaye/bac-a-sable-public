@@ -57,18 +57,28 @@
 
 					<!-- Onglets Catégories -->
 					<div class="onglets-container">
-						<div class="onglets-list">
-							<button class="onglet-btn active" data-categorie="tous"><span class="onglet-icon">📚</span> Tous</button>
-							<button class="onglet-btn" data-categorie="roman"><span class="onglet-icon">📖</span> Romans</button>
-							<button class="onglet-btn" data-categorie="developpement"><span class="onglet-icon">💻</span> Développement</button>
-							<button class="onglet-btn" data-categorie="jeunesse"><span class="onglet-icon">🎈</span> Jeunesse</button>
+						<div class="onglets-list" role="tablist" aria-label="Catégories de nouveautés">
+							<button class="onglet-btn active" id="onglet-tous" type="button" role="tab" aria-selected="true" aria-controls="nouveaute-panel" data-categorie="tous">
+								<span class="onglet-icon" aria-hidden="true">📚</span> Tous
+							</button>
+							<button class="onglet-btn" id="onglet-roman" type="button" role="tab" aria-selected="false" aria-controls="nouveaute-panel" tabindex="-1" data-categorie="roman">
+								<span class="onglet-icon" aria-hidden="true">📖</span> Romans
+							</button>
+							<button class="onglet-btn" id="onglet-developpement" type="button" role="tab" aria-selected="false" aria-controls="nouveaute-panel" tabindex="-1" data-categorie="developpement">
+								<span class="onglet-icon" aria-hidden="true">💻</span> Développement
+							</button>
+							<button class="onglet-btn" id="onglet-jeunesse" type="button" role="tab" aria-selected="false" aria-controls="nouveaute-panel" tabindex="-1" data-categorie="jeunesse">
+								<span class="onglet-icon" aria-hidden="true">🎈</span> Jeunesse
+							</button>
 						</div>
 					</div>
 
 					<!-- Grille des Nouveautés -->
-					<ul class="nouveaute-grid" id="nouveaute-grid">
-						<!-- Les nouveautés seront générées par JavaScript -->
-					</ul>
+					<div id="nouveaute-panel" role="tabpanel" tabindex="0" aria-labelledby="onglet-tous">
+						<ul class="nouveaute-grid" id="nouveaute-grid">
+							<!-- Les nouveautés seront générées par JavaScript -->
+						</ul>
+					</div>
 
 					<!-- Pagination -->
 					<div class="pagination-container">
