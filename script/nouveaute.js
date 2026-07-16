@@ -245,8 +245,8 @@ function afficherNouvelles() {
 
         carte.innerHTML = `
             <div class="nouvelle-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
-                <div class="nouvelle-emoji">${nouvelle.emoji}</div>
-                <div class="nouvelle-nouveau">🆕 NOUVEAU</div>
+                <div class="nouvelle-emoji" aria-hidden="true">${nouvelle.emoji}</div>
+                <div class="nouvelle-nouveau"><span aria-hidden="true">🆕</span> NOUVEAU</div>
             </div>
             <div class="nouvelle-content">
                 <div class="invert-visual-order">
