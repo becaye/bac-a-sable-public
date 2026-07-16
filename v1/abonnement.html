@@ -49,32 +49,32 @@
 		<main id="main-content" role="main" class="abonnement-section">
 			<div class="container">
 				<div class="abonnement-header">
-					<h1>Nos Formules d'Abonnement</h1>
+					<h1 id="tableau-description">Nos Formules d'Abonnement</h1>
 					<p class="abonnement-description">Choisissez la formule qui vous convient le mieux et accédez à notre bibliothèque complète</p>
 				</div>
 
 				<!-- Tableau des abonnements -->
 				<div class="tableau-container">
-					<table class="tableau-abonnements">
+					<table class="tableau-abonnements" aria-labelledby="tableau-description">
 						<thead>
 							<tr>
-								<th>Formule</th>
-								<th>Durée</th>
-								<th>Prix</th>
-								<th>Prix/Mois</th>
-								<th>Accès Livres</th>
-								<th>Téléchargements</th>
-								<th>Sans Pub</th>
-								<th>Support</th>
-								<th>Action</th>
+								<th scope="col">Formule</th>
+								<th scope="col">Durée</th>
+								<th scope="col">Prix</th>
+								<th scope="col">Prix/Mois</th>
+								<th scope="col">Accès Livres</th>
+								<th scope="col">Téléchargements</th>
+								<th scope="col">Sans Pub</th>
+								<th scope="col">Support</th>
+								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<!-- Formule Gratuit -->
 							<tr class="formule-row formule-gratuit">
-								<td class="formule-nom">
+								<th scope="row" class="formule-nom">
 									<div class="nom-formule">Gratuit</div>
-								</td>
+								</th>
 								<td>Illimitée</td>
 								<td class="prix-principal">0€</td>
 								<td>0€</td>
@@ -92,10 +92,10 @@
 
 							<!-- Formule Mensuel -->
 							<tr class="formule-row formule-mensuel">
-								<td class="formule-nom">
+								<th scope="row" class="formule-nom">
 									<div class="nom-formule">Mensuel</div>
 									<span class="badge-populaire">Populaire</span>
-								</td>
+								</th>
 								<td>1 mois</td>
 								<td class="prix-principal">9,99€</td>
 								<td>9,99€</td>
@@ -116,10 +116,10 @@
 
 							<!-- Formule Trimestriel -->
 							<tr class="formule-row formule-trimestriel">
-								<td class="formule-nom">
+								<th scope="row" class="formule-nom">
 									<div class="nom-formule">Trimestriel</div>
 									<span class="promo-badge">-10%</span>
-								</td>
+								</th>
 								<td>3 mois</td>
 								<td class="prix-principal">26,97€</td>
 								<td>8,99€</td>
@@ -140,10 +140,10 @@
 
 							<!-- Formule Semestriel -->
 							<tr class="formule-row formule-semestriel">
-								<td class="formule-nom">
+								<th scope="row" class="formule-nom">
 									<div class="nom-formule">Semestriel</div>
 									<span class="promo-badge">-15%</span>
-								</td>
+								</th>
 								<td>6 mois</td>
 								<td class="prix-principal">50,94€</td>
 								<td>8,49€</td>
@@ -164,10 +164,10 @@
 
 							<!-- Formule Annuel -->
 							<tr class="formule-row formule-annuel">
-								<td class="formule-nom">
+								<th scope="row" class="formule-nom">
 									<div class="nom-formule">Annuel</div>
 									<span class="promo-badge">-20%</span>
-								</td>
+								</th>
 								<td>12 mois</td>
 								<td class="prix-principal">95,88€</td>
 								<td>7,99€</td>
@@ -188,10 +188,10 @@
 
 							<!-- Formule À Vie -->
 							<tr class="formule-row formule-avie">
-								<td class="formule-nom">
+								<th scope="row" class="formule-nom">
 									<div class="nom-formule">À Vie</div>
 									<span class="badge-premium">PREMIUM</span>
-								</td>
+								</th>
 								<td>Illimitée</td>
 								<td class="prix-principal">299€</td>
 								<td>0,83€*</td>
