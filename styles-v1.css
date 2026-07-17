@@ -33,3 +33,9 @@
 .btn-special {
   background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
 }
+.social-links{
+  flex-wrap: wrap;
+}
+.nav-links a,.logo{
+  text-wrap: nowrap;
+}
