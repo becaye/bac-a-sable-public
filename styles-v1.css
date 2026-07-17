@@ -1,0 +1,6 @@
+﻿/*
+ * styles-v1.css
+ * Feuille de style spécifique à la version v1.
+ * Regroupe les correctifs d'accessibilité propres à la v1.
+ * Chargée APRÈS styles.css afin de pouvoir surcharger les règles de base.
+ */
