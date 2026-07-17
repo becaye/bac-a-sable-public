@@ -246,20 +246,20 @@ function afficherNouvelles() {
         carte.innerHTML = `
             <div class="nouvelle-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
                 <div class="nouvelle-emoji" aria-hidden="true">${nouvelle.emoji}</div>
-                <div class="nouvelle-nouveau"><span aria-hidden="true">🆕</span> NOUVEAU</div>
             </div>
             <div class="nouvelle-content">
                 <div class="invert-visual-order">
                     <h3 class="nouvelle-titre">${nouvelle.titre}</h3>
                     <p class="nouvelle-date">Ajouté: ${nouvelle.dateAjout}</p>
                 </div>
+                <div class="nouvelle-nouveau"><span aria-hidden="true">🆕</span> NOUVEAU</div>
                 <p class="nouvelle-auteur">par ${nouvelle.auteur}</p>
                 <p class="nouvelle-categorie">${getCategorieLabel(nouvelle.categorie)}</p>
                 <p class="nouvelle-description">${nouvelle.description}</p>
-                <p class="nouvelle-duree">⏱️ ${nouvelle.duree}</p>
+                <p class="nouvelle-duree"><span aria-hidden="true">⏱️</span> ${nouvelle.duree}</p>
                 <p class="nouvelle-prix">${nouvelle.prix.toFixed(2)}€</p>
                 <div class="livre-extrait">
-                    <label class="extrait-label">🎧 Écoutez un extrait:</label>
+                    <p class="extrait-label">🎧 Écoutez un extrait:</p>
                     <audio class="extrait-audio" controls preload="none">
                         <source src="${nouvelle.extrait}" type="audio/mpeg">
                         Votre navigateur ne supporte pas l'élément audio.

@@ -374,6 +374,7 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
 }
 
 .actualite-card,
