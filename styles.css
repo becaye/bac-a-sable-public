@@ -2420,6 +2420,14 @@ button{
   transform: rotate(-45deg) translateY(-11px);
 }
 
+/* Focus visible - Navigation (v1) */
+.burger-menu:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* Responsive - Burger Menu */
 @media (max-width: 768px) {
   .burger-menu {
@@ -2445,6 +2453,17 @@ button{
 
   .nav-links.active {
     right: 0;
+  }
+
+  /* v1 : menu non focusable quand il est fermé (hors écran) */
+  header.navbar .nav-links {
+    visibility: hidden;
+    transition: right 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  header.navbar .nav-links.active {
+    visibility: visible;
+    transition: right 0.3s ease;
   }
 
   .nav-links li {

@@ -287,35 +287,72 @@ function initBurgerMenu() {
     const burgerMenu = document.getElementById('burger-menu');
     const navLinks = document.getElementById('nav-links');
 
-    if (burgerMenu && navLinks) {
-        // Toggle menu au clic sur le burger
-        burgerMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
-            burgerMenu.classList.toggle('active');
-            navLinks.classList.toggle('active');
+    if (!burgerMenu || !navLinks) {
+        return;
+    }
+
+    // Ouvre ou ferme le menu (met à jour aria-expanded en v1)
+    function setMenuOuvert(ouvert) {
+        burgerMenu.classList.toggle('active', ouvert);
+        navLinks.classList.toggle('active', ouvert);
+        if (v1) {
+            burgerMenu.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+        }
+    }
+
+    function fermerMenu() {
+        setMenuOuvert(false);
+    }
+
+    // Toggle menu au clic sur le burger
+    burgerMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+        setMenuOuvert(!navLinks.classList.contains('active'));
+    });
+
+    // Fermer le menu quand un lien est cliqué
+    const navItems = navLinks.querySelectorAll('a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            fermerMenu();
         });
+    });
 
-        // Fermer le menu quand un lien est cliqué
-        const navItems = navLinks.querySelectorAll('a');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                burgerMenu.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
+    // Fermer le menu quand on clique en dehors
+    document.addEventListener('click', function(event) {
+        if (navLinks.classList.contains('active')) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickInsideBurger = burgerMenu.contains(event.target);
 
-        // Fermer le menu quand on clique en dehors
-        document.addEventListener('click', function(event) {
-            if (navLinks.classList.contains('active')) {
-                const isClickInsideNav = navLinks.contains(event.target);
-                const isClickInsideBurger = burgerMenu.contains(event.target);
+            if (!isClickInsideNav && !isClickInsideBurger) {
+                fermerMenu();
+            }
+        }
+    });
 
-                if (!isClickInsideNav && !isClickInsideBurger) {
-                    burgerMenu.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
+    // Améliorations d'accessibilité clavier (v1 uniquement)
+    if (v1) {
+        // Escape ferme le menu et redonne le focus au bouton
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+                fermerMenu();
+                burgerMenu.focus();
             }
         });
+
+        // Fermer le menu si le focus en sort (hors bouton et hors liste)
+        function fermerSiFocusSort(event) {
+            if (!navLinks.classList.contains('active')) {
+                return;
+            }
+            const cible = event.relatedTarget;
+            const focusResteDansMenu = cible && (navLinks.contains(cible) || cible === burgerMenu);
+            if (!focusResteDansMenu) {
+                fermerMenu();
+            }
+        }
+        navLinks.addEventListener('focusout', fermerSiFocusSort);
+        burgerMenu.addEventListener('focusout', fermerSiFocusSort);
     }
 }
 

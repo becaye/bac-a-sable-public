@@ -24,12 +24,13 @@
 		<header role="banner" class="navbar">
 			<div class="nav-container">
 				<div class="logo">🎧 AudioBooks</div>
-				<button class="burger-menu" id="burger-menu">
+				<button class="burger-menu" id="burger-menu" type="button" aria-controls="nav-links" aria-expanded="false">
 					<span></span>
 					<span></span>
 					<span></span>
+					<span class="sr-only">Menu</span>
 				</button>
-				<nav>
+				<nav aria-label="Menu de navigation principal">
 					<ul class="nav-links" id="nav-links">
 						<li><a href="../annulaire.html">Accueil</a></li>
 						<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
