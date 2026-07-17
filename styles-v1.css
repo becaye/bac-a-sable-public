@@ -4,3 +4,32 @@
  * Regroupe les correctifs d'accessibilité propres à la v1.
  * Chargée APRÈS styles.css afin de pouvoir surcharger les règles de base.
  */
+
+:root {
+  --primary-color: #6C5DCE;
+  --dark-primary-color: #2d13d3;
+  --secondary-color: #E90464;
+  --tertiary-color: #E91E1B;
+
+  --solar: #C75300;
+  --solar-dark: #E91E1B;
+    
+  /* Tokens: couleurs de texte */
+    --text-muted-2: #797676;
+    --text-muted-3: #797676;
+}
+.pagination-ellipsis {
+  color: var(--primary-color);
+}
+
+
+.badge-populaire {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-primary-color) 100%);
+}
+
+.badge-premium {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+.btn-special {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}

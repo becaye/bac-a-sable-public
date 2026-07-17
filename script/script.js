@@ -375,16 +375,27 @@ function afficherLivres(filtre) {
             carte = document.createElement('div');
        
         carte.className = 'livre-card';
-        const couleurs = [
-            { main: '#667eea', accent: '#764ba2' },
-            { main: '#f093fb', accent: '#f5576c' },
-            { main: '#4facfe', accent: '#00f2fe' },
-            { main: '#43e97b', accent: '#38f9d7' },
-            { main: '#fa709a', accent: '#fee140' },
-            { main: '#30cfd0', accent: '#330867' },
-            { main: '#a8edea', accent: '#fed6e3' },
-            { main: '#ff9a56', accent: '#ff6a88' }
-        ];
+        const couleurs = v1
+            ? [
+                { main: '#4338ca', accent: '#6d28d9' },
+                { main: '#be123c', accent: '#b91c1c' },
+                { main: '#1d4ed8', accent: '#075985' },
+                { main: '#047857', accent: '#115e59' },
+                { main: '#be185d', accent: '#86198f' },
+                { main: '#155e75', accent: '#1e3a8a' },
+                { main: '#15803d', accent: '#047857' },
+                { main: '#c2410c', accent: '#9a3412' }
+            ]
+            : [
+                { main: '#667eea', accent: '#764ba2' },
+                { main: '#f093fb', accent: '#f5576c' },
+                { main: '#4facfe', accent: '#00f2fe' },
+                { main: '#43e97b', accent: '#38f9d7' },
+                { main: '#fa709a', accent: '#fee140' },
+                { main: '#30cfd0', accent: '#330867' },
+                { main: '#a8edea', accent: '#fed6e3' },
+                { main: '#ff9a56', accent: '#ff6a88' }
+            ];
         const couleur = couleurs[index % couleurs.length];
 
         carte.innerHTML = `
@@ -543,13 +554,21 @@ function initCarousel() {
     // Créer les slides
     carousel.innerHTML = '';
     meilleuresVentes.forEach((livre, index) => {
-        const couleurs = [
-            { main: '#667eea', accent: '#764ba2' },
-            { main: '#f093fb', accent: '#f5576c' },
-            { main: '#4facfe', accent: '#00f2fe' },
-            { main: '#43e97b', accent: '#38f9d7' },
-            { main: '#fa709a', accent: '#fee140' }
-        ];
+        const couleurs = v1
+            ? [
+                { main: '#4338ca', accent: '#6d28d9' },
+                { main: '#be123c', accent: '#b91c1c' },
+                { main: '#1d4ed8', accent: '#075985' },
+                { main: '#047857', accent: '#115e59' },
+                { main: '#be185d', accent: '#86198f' }
+            ]
+            : [
+                { main: '#667eea', accent: '#764ba2' },
+                { main: '#f093fb', accent: '#f5576c' },
+                { main: '#4facfe', accent: '#00f2fe' },
+                { main: '#43e97b', accent: '#38f9d7' },
+                { main: '#fa709a', accent: '#fee140' }
+            ];
         const couleur = couleurs[index % couleurs.length];
         const background = `linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%)`;
 
