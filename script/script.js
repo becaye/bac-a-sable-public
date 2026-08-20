@@ -397,7 +397,9 @@ function afficherLivres(filtre) {
                 { main: '#ff9a56', accent: '#ff6a88' }
             ];
         const couleur = couleurs[index % couleurs.length];
-
+        let libellePanier = 'Ajouter au Panier';
+        if (v1) 
+            libellePanier = `Ajouter au Panier <span class="sr-only">${livre.titre}</span>`;
         carte.innerHTML = `
             <div class="livre-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
                 <div class="livre-emoji" aria-hidden="true">${livre.emoji}</div>
@@ -413,7 +415,7 @@ function afficherLivres(filtre) {
                 <div class="livre-description">${livre.description}</div>
                 <div class="livre-duree">${useAccessibleDuree ? `<span aria-hidden="true">⏱️</span><span class="sr-only">Durée</span>` : '⏱️'} ${livre.duree}</div>
                 <div class="livre-prix">${livre.prix.toFixed(2)}€</div>
-                <button class="btn-ajouter" onclick="ajouterAuPanier(${livre.id})">Ajouter au panier <span class="sr-only">${livre.titre}</span></button>
+                <button class="btn-ajouter" onclick="ajouterAuPanier(${livre.id})">${libellePanier}</button>
             </div>
         `;
         grid.appendChild(carte);
