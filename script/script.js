@@ -106,13 +106,15 @@ function validateContactForm() {
     const message = document.getElementById('message').value.trim();
     
     let isValid = true;
+    let firstInvalidInput = null;
     
     // Validation nom
     const nomError = document.getElementById('nom-error');
     const nomInput = document.getElementById('nom');
     if (nom === '') {
-        showError(nomInput, nomError, 'Ce champ est obligatoire');
+        showError(nomInput, nomError, v1 ? 'Vous devez indiquer votre nom.' : 'Ce champ est obligatoire');
         isValid = false;
+        firstInvalidInput = firstInvalidInput || nomInput;
     } else {
         hideError(nomInput, nomError);
     }
@@ -122,11 +124,13 @@ function validateContactForm() {
     const emailError = document.getElementById('email-error');
     const emailInput = document.getElementById('email');
     if (email === '') {
-        showError(emailInput, emailError, 'Ce champ est obligatoire');
+        showError(emailInput, emailError, v1 ? 'Vous devez indiquer votre adresse e-mail.' : 'Ce champ est obligatoire');
         isValid = false;
+        firstInvalidInput = firstInvalidInput || emailInput;
     } else if (!emailRegex.test(email)) {
-        showError(emailInput, emailError, 'Veuillez entrer une adresse email valide');
+        showError(emailInput, emailError, v1 ? 'Adresse e-mail invalide. Exemple : nom@domaine.fr' : 'Veuillez entrer une adresse email valide');
         isValid = false;
+        firstInvalidInput = firstInvalidInput || emailInput;
     } else {
         hideError(emailInput, emailError);
     }
@@ -135,14 +139,17 @@ function validateContactForm() {
     const messageError = document.getElementById('message-error');
     const messageInput = document.getElementById('message');
     if (message === '') {
-        showError(messageInput, messageError, 'Ce champ est obligatoire');
+        showError(messageInput, messageError, v1 ? 'Vous devez indiquer votre message.' : 'Ce champ est obligatoire');
         isValid = false;
+        firstInvalidInput = firstInvalidInput || messageInput;
     } else if (message.length < 10) {
-        showError(messageInput, messageError, 'Le message doit contenir au moins 10 caractères');
+        showError(messageInput, messageError, v1 ? 'Votre message doit contenir au moins 10 caractères.' : 'Le message doit contenir au moins 10 caractères');
         isValid = false;
+        firstInvalidInput = firstInvalidInput || messageInput;
     } else if (message.length > 500) {
-        showError(messageInput, messageError, 'Le message ne peut pas dépasser 500 caractères');
+        showError(messageInput, messageError, v1 ? 'Votre message ne peut pas dépasser 500 caractères.' : 'Le message ne peut pas dépasser 500 caractères');
         isValid = false;
+        firstInvalidInput = firstInvalidInput || messageInput;
     } else {
         hideError(messageInput, messageError);
     }
@@ -154,10 +161,22 @@ function validateContactForm() {
         if (confirmation) {
             confirmation.style.display = 'block';
             contactForm.reset();
-            setTimeout(() => {
-                confirmation.style.display = 'none';
-            }, 3000);
+            if (v1) {
+                // masque le formulaire et conserve la confirmation affichée pour tous les utilisateurs
+                contactForm.style.display = 'none';
+                confirmation.focus();
+            } else {
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 3000);
+            }
         }
+    }
+    else {
+        if (v1 && firstInvalidInput) {
+            firstInvalidInput.focus();
+        }
+        return false;
     }
 }
 
@@ -165,12 +184,18 @@ function showError(input, errorDiv, message) {
     input.classList.add('input-error');
     errorDiv.textContent = message;
     errorDiv.classList.add('show');
+    if (v1) {
+        input.setAttribute('aria-invalid', 'true');
+    }
 }
 
 function hideError(input, errorDiv) {
     input.classList.remove('input-error');
     errorDiv.textContent = '';
     errorDiv.classList.remove('show');
+    if (v1) {
+        input.removeAttribute('aria-invalid');
+    }
 }
 
 // Initialisation

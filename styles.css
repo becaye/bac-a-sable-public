@@ -782,6 +782,17 @@ button{
   display: none;
 }
 
+.mandatory {
+  color: #dc3545;
+}
+
+.form-label-help {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--text-secondary, #666);
+}
+
 .error-message.show {
   display: block;
 }

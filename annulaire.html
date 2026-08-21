@@ -192,24 +192,25 @@
 				<div class="container">
 					<h2 class="titre_moyen">Nous Contacter</h2>
 					<form id="contact-form" class="contact-form" novalidate>
+						<p><small>Tous les champs sont obligatoires</small></p>
 						<div class="form-group">
-							<label for="nom">Votre nom:</label>
-							<input type="text" id="nom" name="nom" placeholder="Dus" />
+							<label for="nom">Votre nom&nbsp;:</label>
+							<input type="text" id="nom" name="nom" required aria-describedby="nom-error" autocomplete="name" />
 							<div id="nom-error" class="error-message"></div>
 						</div>
 						<div class="form-group">
-							<label for="email">Votre email:</label>
-							<input type="text" id="email" name="email" placeholder="jean-claude.dus@bronze.fr" />
+							<label for="email">Votre email&nbsp;:<span class="form-label-help" id="email-format-hint">Format attendu : nom@domaine.fr</span></label>
+							<input type="text" id="email" name="email" required aria-describedby="email-error email-format-hint" autocomplete="email" />
 							<div id="email-error" class="error-message"></div>
 						</div>
 						<div class="form-group">
-							<label for="message">Votre message:</label>
-							<textarea id="message" name="message" rows="5" placeholder="Entrez votre message"></textarea>
+							<label for="message">Votre message&nbsp;:<span class="form-label-help" id="message-format-hint">Format attendu : entre 10 et 500 caractères</span></label>
+							<textarea id="message" name="message" rows="5" required aria-describedby="message-error message-format-hint"></textarea>
 							<div id="message-error" class="error-message"></div>
 						</div>
-						<button class="btn-primary" onclick="validateContactForm()">Envoyer</button>
+						<button type="button" class="btn-primary" onclick="validateContactForm()">Envoyer</button>
 					</form>
-					<div id="message-confirmation" style="display: none" class="message-success">Merci pour votre message! Nous vous recontacterons bientôt.</div>
+					<p id="message-confirmation" style="display: none" class="message-success" aria-live="polite" tabindex="-1">Merci pour votre message! Nous vous recontacterons bientôt.</p>
 				</div>
 			</section>
 		</main>
