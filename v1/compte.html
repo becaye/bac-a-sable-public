@@ -56,57 +56,80 @@
 						<h1>Créer un Compte</h1>
 						<p class="compte-description">Rejoignez AudioBooks et découvrez notre collection de livres audio</p>
 
-						<form id="inscription-form" class="inscription-form-page">
+						<form id="inscription-form" class="inscription-form-page" novalidate>
+							<p><small>Tous les champs sont obligatoires</small></p>
 							<div class="form-row">
 								<div class="form-group">
-									<label for="prenom">Prénom *</label>
-									<input type="text" placeholder="Jean" id="prenom" required />
+									<label for="prenom">Prénom </label>
+									<input type="text" id="prenom" required aria-describedby="prenom-error" autocomplete="given-name" />
+									<p id="prenom-error" class="error-message"></p>
 								</div>
 								<div class="form-group">
-									<label for="nom">Nom *</label>
-									<input type="text" placeholder="Dupont" id="nom" required />
+									<label for="nom">Nom </label>
+									<input type="text" id="nom" required aria-describedby="nom-error" autocomplete="family-name" />
+									<p id="nom-error" class="error-message"></p>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="email">Email *</label>
-								<input type="email" placeholder="votre.email@example.com" id="email" required />
+								<label for="email">Email <span class="form-label-help" id="email-format-hint">Format attendu : nom@domaine.fr</span></label>
+								<input type="email" id="email" required aria-describedby="email-error email-format-hint" autocomplete="email" />
+								<p id="email-error" class="error-message"></p>
 							</div>
 
 							<div class="form-group">
-								<label for="telephone">Téléphone *</label>
-								<input type="tel" placeholder="+33 6 12 34 56 78" id="telephone" required />
+								<label for="telephone">Téléphone <span class="form-label-help" id="telephone-format-hint">Format attendu : +33 6 12 34 56 78</span></label>
+								<input type="tel" id="telephone" required aria-describedby="telephone-error telephone-format-hint" autocomplete="tel" />
+								<p id="telephone-error" class="error-message"></p>
 							</div>
 
 							<div class="form-group">
-								<label for="adresse">Adresse *</label>
-								<input type="text" placeholder="123 Rue de la Paix, 75000 Paris" id="adresse" required />
+								<label for="adresse">Adresse </label>
+								<input type="text" id="adresse" required aria-describedby="adresse-error" autocomplete="address-line1" />
+								<p id="adresse-error" class="error-message"></p>
+							</div>
+
+							<div class="form-row">
+								<div class="form-group">
+									<label for="codepostal">Code postal </label>
+									<input type="text" id="codepostal" required aria-describedby="codepostal-error" autocomplete="postal-code" inputmode="numeric" />
+									<p id="codepostal-error" class="error-message"></p>
+								</div>
+								<div class="form-group">
+									<label for="ville">Ville </label>
+									<input type="text" id="ville" required aria-describedby="ville-error" autocomplete="address-level2" />
+									<p id="ville-error" class="error-message"></p>
+								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="motdepasse">Mot de passe *</label>
-								<input type="password" placeholder="Minimum 6 caractères" id="motdepasse" required />
-								<small>Au minimum 6 caractères, avec lettres et chiffres recommandés</small>
+								<label for="motdepasse"
+									>Mot de passe<span class="mandatory" aria-hidden="true">*</span
+									><span class="form-label-help" id="motdepasse-format-hint">Au minimum 6 caractères, avec lettres et chiffres recommandés</span></label
+								>
+								<input type="password" id="motdepasse" required aria-describedby="motdepasse-error motdepasse-format-hint" autocomplete="new-password" />
+								<p id="motdepasse-error" class="error-message"></p>
 							</div>
 
 							<div class="form-group">
-								<label for="confirmer-motdepasse">Confirmer le mot de passe *</label>
-								<input type="password" placeholder="Confirmez votre mot de passe" id="confirmer-motdepasse" required />
+								<label for="confirmer-motdepasse">Confirmer le mot de passe </label>
+								<input type="password" id="confirmer-motdepasse" required aria-describedby="confirmer-motdepasse-error" autocomplete="new-password" />
+								<p id="confirmer-motdepasse-error" class="error-message"></p>
 							</div>
 
 							<div class="form-group checkbox">
-								<input type="checkbox" id="conditions" required />
-								<label for="conditions" class="checkbox-label">J'accepte les conditions d'utilisation et la politique de confidentialité</label>
+								<input type="checkbox" id="conditions" required aria-describedby="conditions-error" />
+								<label for="conditions" class="checkbox-label">J'accepte les conditions d'utilisation et la politique de confidentialité </label>
+								<p id="conditions-error" class="error-message"></p>
 							</div>
 
 							<button type="submit" class="btn-primary btn-large">Créer mon compte</button>
 						</form>
 
-						<div id="inscription-message" style="display: none" class="message-success message-large">
-							<div style="font-size: 24px; margin-bottom: 10px">✅</div>
-							<strong>Compte créé avec succès!</strong>
-							<p>Bienvenue sur AudioBooks 🎉</p>
-							<p>Vous allez être redirigé vers la page d'accueil...</p>
+						<div id="inscription-message" style="display: none" class="message-success message-large" tabindex="-1">
+							<h2>Compte créé avec succès!</h2>
+							<p>Bienvenue sur AudioBooks <span aria-hidden="true">🎉</span></p>
+							<p><a href="../annulaire.html">Retour à l'accueil</a></p>
 						</div>
 					</div>
 				</div>

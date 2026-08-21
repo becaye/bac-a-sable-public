@@ -798,18 +798,24 @@ button{
 }
 
 .contact-form input.input-error,
-.contact-form textarea.input-error {
+.contact-form textarea.input-error,
+.inscription-form-page input.input-error {
   border-color: #dc3545 !important;
   background-color: #fff5f5;
 }
 
 .message-success {
-  background: #28a745;
+  background: #1e7e34;
   color: var(--white);
   padding: 15px;
   border-radius: var(--radius-sm);
   text-align: center;
   margin-top: 20px;
+  scroll-margin-top: 90px; /* évite que la nav sticky ne masque le message lors du focus */
+}
+
+.message-success a {
+  color: var(--white);
 }
 
 /* Inscription */
@@ -1676,6 +1682,10 @@ button{
   border-radius: 6px;
   transition: all 0.3s;
   user-select: none;
+}
+
+input + .checkbox-label {
+  padding:0;
 }
 
 .radio-label:hover,

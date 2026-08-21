@@ -164,7 +164,8 @@ function validateContactForm() {
             if (v1) {
                 // masque le formulaire et conserve la confirmation affichée pour tous les utilisateurs
                 contactForm.style.display = 'none';
-                confirmation.focus();
+                confirmation.focus({ preventScroll: true });
+                confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
                 setTimeout(() => {
                     confirmation.style.display = 'none';
