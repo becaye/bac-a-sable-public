@@ -35,7 +35,8 @@ const livres = [
     },
     {
         id: 4,
-        titre: "Harry Potter à l'école des sorciers",
+        titre: "Harry Potter and the Philosopher’s Stone",
+        lang: "en",
         auteur: "J.K. Rowling",
         prix: 16.99,
         categorie: "jeunesse",
@@ -423,19 +424,20 @@ function afficherLivres(filtre) {
                 { main: '#ff9a56', accent: '#ff6a88' }
             ];
         const couleur = couleurs[index % couleurs.length];
+        const attributLangTitre = v1 && livre.lang ? ` lang="${livre.lang}"` : '';
         let libellePanier = 'Ajouter au Panier';
         if (v1) 
-            libellePanier = `Ajouter au Panier <span class="sr-only">${livre.titre}</span>`;
+            libellePanier = `Ajouter au Panier <span class="sr-only"${attributLangTitre}>${livre.titre}</span>`;
         carte.innerHTML = `
             <div class="livre-couverture" style="background: linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%);">
                 <div class="livre-emoji" aria-hidden="true">${livre.emoji}</div>
                 <div class="livre-couverture-content">
-                    <div class="livre-couverture-titre">${livre.titre}</div>
+                    <div class="livre-couverture-titre"${attributLangTitre}>${livre.titre}</div>
                     <div class="livre-couverture-auteur">${livre.auteur}</div>
                 </div>
             </div>
             <div class="livre-content">
-                <h3 class="livre-titre">${livre.titre}</h3>
+                <h3 class="livre-titre"${attributLangTitre}>${livre.titre}</h3>
                 <div class="livre-auteur">par ${livre.auteur}</div>
                 <div class="livre-categorie">${getCategorieLabel(livre.categorie)}</div>
                 <div class="livre-description">${livre.description}</div>
@@ -599,17 +601,18 @@ function initCarousel() {
             ];
         const couleur = couleurs[index % couleurs.length];
         const background = `linear-gradient(135deg, ${couleur.main} 0%, ${couleur.accent} 100%)`;
+        const attributLangTitre = v1 && livre.lang ? ` lang="${livre.lang}"` : '';
 
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         slide.style.background = background;
         let libellePanier = '🛒 Ajouter au Panier';
         if (v1) {
-            libellePanier = `<span aria-hidden="true">🛒</span> Ajouter au Panier <span class="sr-only">${livre.titre}</span></span>`;
+            libellePanier = `<span aria-hidden="true">🛒</span> Ajouter au Panier <span class="sr-only"${attributLangTitre}>${livre.titre}</span></span>`;
             slide.innerHTML = `
             <div class="carousel-slide-image">${livre.emoji}</div>
             <div class="carousel-slide-content">
-                <h3 class="carousel-slide-title">${livre.titre}</h3>
+                <h3 class="carousel-slide-title"${attributLangTitre}>${livre.titre}</h3>
                 <p class="carousel-slide-author">par ${livre.auteur}</p>
                 <p class="carousel-slide-description">${livre.description}</p>
                 <dl class="carousel-slide-details">
