@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="title desc">
+  <title id="title">LivreFlux</title>
+  <desc id="desc">Logo LivreFlux avec un livre ouvert violet.</desc>
+  <rect width="320" height="120" rx="12" fill="#f0eaf5"/>
+  <path d="M27 42c14-8 28-7 40 2v38c-12-9-26-10-40-2Z" fill="#8064a2"/>
+  <path d="M107 42c-14-8-28-7-40 2v38c12-9 26-10 40-2Z" fill="#a98dcc"/>
+  <path d="M67 44v38" stroke="#fff" stroke-width="3"/>
+  <text x="126" y="75" fill="#4a315f" font-family="Georgia, serif" font-size="31" font-weight="700">LivreFlux</text>
+</svg>

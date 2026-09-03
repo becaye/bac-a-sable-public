@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="title desc">
+  <title id="title">Sonora Studio</title>
+  <desc id="desc">Logo Sonora Studio avec un bouton de lecture bleu.</desc>
+  <rect width="320" height="120" rx="12" fill="#e8eff7"/>
+  <circle cx="65" cy="60" r="31" fill="#386fa4"/>
+  <path d="m57 43 25 17-25 17Z" fill="#fff"/>
+  <text x="117" y="67" fill="#1d3557" font-family="Georgia, serif" font-size="27" font-weight="700">Sonora</text>
+  <text x="119" y="88" fill="#386fa4" font-family="Arial, sans-serif" font-size="12" letter-spacing="3">STUDIO</text>
+</svg>

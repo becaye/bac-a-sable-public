@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="title desc">
+  <title id="title">Voxelia</title>
+  <desc id="desc">Logo Voxelia avec une bulle de dialogue corail.</desc>
+  <rect width="320" height="120" rx="12" fill="#f5ede8"/>
+  <path d="M40 34h62a16 16 0 0 1 16 16v17a16 16 0 0 1-16 16H75L55 98V83H40a16 16 0 0 1-16-16V50a16 16 0 0 1 16-16Z" fill="#e76f51"/>
+  <circle cx="54" cy="58" r="4" fill="#fff"/><circle cx="71" cy="58" r="4" fill="#fff"/><circle cx="88" cy="58" r="4" fill="#fff"/>
+  <text x="132" y="75" fill="#2d3047" font-family="Georgia, serif" font-size="31" font-weight="700">Voxelia</text>
+</svg>

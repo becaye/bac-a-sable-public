@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="title desc">
+  <title id="title">EchoNest</title>
+  <desc id="desc">Logo EchoNest avec des arcs sonores verts.</desc>
+  <rect width="320" height="120" rx="12" fill="#e6f2ed"/>
+  <path d="M34 72c10-23 20-23 30 0s20 23 30 0" fill="none" stroke="#2a9d8f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M37 52c8-13 16-13 24 0s16 13 24 0" fill="none" stroke="#76c893" stroke-width="5" stroke-linecap="round"/>
+  <text x="124" y="75" fill="#1f4d45" font-family="Georgia, serif" font-size="30" font-weight="700">EchoNest</text>
+</svg>
