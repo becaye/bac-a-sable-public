@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "timeout": 30000,
+    "standard": "WCAG2AA",
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:3000/index.html",
+    "http://localhost:3000/annulaire.html",
+    "http://localhost:3000/pouce.html",
+    "http://localhost:3000/v0/abonnement.html",
+    "http://localhost:3000/v0/compte.html",
+    "http://localhost:3000/v0/nouveaute.html",
+    "http://localhost:3000/v0/sondage.html",
+    "http://localhost:3000/v1/abonnement.html",
+    "http://localhost:3000/v1/compte.html",
+    "http://localhost:3000/v1/nouveaute.html",
+    "http://localhost:3000/v1/sondage.html"
+  ]
+}

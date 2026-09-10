@@ -1,0 +1,23 @@
+{
+  "name": "bac-a-sable-public",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server . -p 3000 --silent",
+    "lint:html": "html-validate index.html annulaire.html pouce.html \"v0/*.html\" \"v1/*.html\"",
+    "lint:a11y": "pa11y-ci",
+    "check:a11y": "start-server-and-test serve http://localhost:3000 lint:a11y"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "html-validate": "^11.15.0",
+    "http-server": "^14.1.1",
+    "pa11y-ci": "^4.1.1",
+    "start-server-and-test": "^3.0.12"
+  }
+}

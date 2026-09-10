@@ -1,0 +1,7 @@
+{
+  "extends": ["html-validate:document"],
+  "elements": ["html5"],
+  "rules": {
+    "require-sri": "off"
+  }
+}

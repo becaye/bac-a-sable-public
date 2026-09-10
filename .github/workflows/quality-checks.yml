@@ -1,0 +1,48 @@
+name: Vérifications qualité (HTML & accessibilité)
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  html-validate:
+    name: Validité HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Le site contient des erreurs volontaires (dossier /v0) à des fins
+      # pédagogiques : ce job est donc en mode rapport uniquement et ne
+      # fait jamais échouer le workflow.
+      - name: Valider le HTML (rapport seul)
+        run: npm run lint:html
+        continue-on-error: true
+
+  pa11y:
+    name: Accessibilité (pa11y-ci)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Le site contient des erreurs volontaires (dossier /v0) à des fins
+      # pédagogiques : ce job est donc en mode rapport uniquement et ne
+      # fait jamais échouer le workflow.
+      - name: Auditer l'accessibilité (rapport seul)
+        run: npm run check:a11y
+        continue-on-error: true
