@@ -90,6 +90,148 @@ body {
   line-height: 1.6;
 }
 
+.declaration-accessibilite {
+  padding: var(--section-pad-y-base) var(--section-pad-x);
+  background: var(--white);
+}
+
+.declaration-contenu {
+  max-width: 900px;
+}
+
+.declaration-entete {
+  padding-bottom: var(--space-6);
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.declaration-entete p {
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.declaration-entete h1 {
+  font-size: var(--font-size-page-title);
+  line-height: 1.2;
+}
+
+.declaration-contenu section,
+.declaration-avertissement {
+  margin-top: var(--space-7);
+}
+
+.declaration-contenu h2 {
+  margin-bottom: var(--space-4);
+  color: var(--primary-color);
+  font-size: var(--font-size-page-title-sm);
+  line-height: 1.2;
+}
+
+.declaration-contenu h3 {
+  margin: var(--space-5) 0 var(--space-3);
+}
+
+.declaration-contenu p,
+.declaration-contenu ul,
+.declaration-contenu blockquote {
+  margin-bottom: var(--space-4);
+}
+
+.declaration-contenu ul {
+  padding-left: 1.5rem;
+}
+
+.declaration-statut,
+.declaration-carte,
+.declaration-avertissement {
+  padding: var(--space-5);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+
+.declaration-statut {
+  margin-top: var(--space-6);
+  border-left: 8px solid #18753c;
+  background: #e9f6ed;
+}
+
+.declaration-statut strong,
+.declaration-score {
+  display: block;
+  font-weight: 800;
+  color: #18753c;
+}
+
+.declaration-statut strong {
+  font-size: var(--font-size-xl);
+}
+
+.declaration-score {
+  margin: var(--space-3) 0;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.declaration-carte {
+  background: var(--light-bg);
+}
+
+.declaration-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: #18753c;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.declaration-tableau {
+  overflow-x: auto;
+}
+
+.declaration-tableau table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.declaration-tableau caption {
+  padding: var(--space-3);
+  font-weight: 700;
+  text-align: left;
+}
+
+.declaration-tableau th,
+.declaration-tableau td {
+  padding: var(--space-3);
+  border: 1px solid var(--border-default);
+  text-align: left;
+}
+
+.declaration-tableau th {
+  background: var(--light-bg);
+}
+
+.declaration-contenu blockquote {
+  padding: var(--space-4);
+  border-left: 4px solid var(--primary-color);
+  background: var(--light-bg);
+}
+
+.declaration-avertissement {
+  border-left: 8px solid #a96600;
+  background: #fff4d6;
+}
+
+.declaration-avertissement h2 {
+  color: #7a4b00;
+}
+
+.declaration-accessibilite :focus-visible,
+.footer-accessibility a:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 3px;
+}
+
 button{
   cursor: pointer;
 }

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Déclaration d'accessibilité - AudioBooks v1</title>
+		<link rel="icon" href="../favicon-unicorn.svg" type="image/svg" />
+		<link rel="stylesheet" href="../styles.css" />
+		<link rel="stylesheet" href="../styles-v1.css" />
+	</head>
+	<body>
+		<header role="banner" class="navbar">
+			<div class="skip-links-container">
+				<div class="container">
+					<nav aria-label="Menu de navigation rapide">
+						<ul class="skip-links">
+							<li><a class="skip-link" href="#main-content">Aller au contenu principal</a></li>
+							<li><a class="skip-link" href="#footer-content">Aller au pied de page</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="nav-container">
+				<div class="logo">🎧 AudioBooks</div>
+				<button class="burger-menu" id="burger-menu" type="button" aria-controls="nav-links" aria-expanded="false">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="sr-only">Menu</span>
+				</button>
+				<nav aria-label="Menu de navigation principal">
+					<ul class="nav-links" id="nav-links">
+						<li><a href="../annulaire.html">Accueil</a></li>
+						<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+						<li><a href="nouveaute.html">Nouveautés</a></li>
+						<li><a href="abonnement.html">Abonnements</a></li>
+						<li><a href="sondage.html">Sondage</a></li>
+						<li><a href="../annulaire.html#contact">Contact</a></li>
+						<li><a href="compte.html" class="inscription-btn">👤 S'inscrire</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main-content" class="declaration-accessibilite" tabindex="-1">
+			<div class="container declaration-contenu">
+				<header class="declaration-entete">
+					<h1>Déclaration d'accessibilité</h1>
+				</header>
+
+				<section aria-labelledby="conformite">
+					<h2 id="conformite">État de conformité</h2>
+					<p>Le site est <strong>partiellement conforme</strong> au Référentiel général d'amélioration de l'accessibilité (RGAA).</p>
+					<p>
+						Ce site a été conçu à des fins pédagogiques. Il présente volontairement de nombreux exemples de problèmes d'accessibilité, ainsi que des propositions de corrections, afin d'illustrer
+						concrètement les bonnes et les mauvaises pratiques en matière d'accessibilité numérique.
+					</p>
+				</section>
+
+				<section aria-labelledby="absence-audit">
+					<h2 id="absence-audit">Absence d'audit RGAA complet</h2>
+					<p>À ce jour, le site n'a pas fait l'objet d'un audit complet permettant d'évaluer sa conformité au RGAA.</p>
+					<p>
+						Par ailleurs, nous n'avons pas eu le temps de corriger l'ensemble des problèmes présents sur le site. Certaines corrections ont également été réalisées dans un objectif pédagogique et
+						peuvent être incomplètes, imparfaites ou discutables selon les contextes et les situations d'utilisation.
+					</p>
+					<p>
+						Les exemples proposés ne doivent donc pas être considérés comme des implémentations systématiquement conformes au RGAA, ni comme des recommandations applicables sans analyse du contexte.
+					</p>
+				</section>
+
+				<section aria-labelledby="contenu-pedagogique">
+					<h2 id="contenu-pedagogique">Contenu pédagogique</h2>
+					<p>L'objectif de ce site est de permettre d'identifier et de comprendre différents problèmes d'accessibilité, puis d'observer des pistes de correction.</p>
+					<p>Certains problèmes sont donc <strong>volontaires</strong> et font partie du contenu pédagogique du site.</p>
+					<p>À l'inverse, d'autres problèmes peuvent simplement être liés au fait que le site est lui-même un projet en cours de réalisation et qu'il n'a pas fait l'objet d'un audit complet.</p>
+				</section>
+
+				<section aria-labelledby="contribution">
+					<h2 id="contribution">Votre contribution</h2>
+					<p>Si vous constatez un problème qui ne semble pas avoir été introduit volontairement à des fins pédagogiques, n'hésitez pas à nous le signaler.</p>
+					<p>De même, si vous identifiez une correction qui vous semble incomplète, incorrecte ou discutable, vos remarques sont les bienvenues.</p>
+					<p>Les retours issus de différentes situations d'utilisation sont particulièrement utiles pour améliorer les exemples proposés et enrichir le contenu pédagogique.</p>
+					<p><strong>Toute contribution est la bienvenue.</strong> Les MR sont ouvertes.</p>
+					<p>Merci pour vos retours et votre contribution à l'amélioration de ce site.</p>
+				</section>
+			</div>
+		</main>
+
+		<footer id="footer-content" class="footer" role="contentinfo">
+			<div class="container">
+				<p>&copy; 2026 AudioBooks. Tous droits réservés.</p>
+				<div class="footer-extra">
+					<div class="footer-section">
+						<ul class="footer-list">
+							<li><a href="../annulaire.html">Accueil</a></li>
+							<li><a href="../annulaire.html#catalogue">Catalogue</a></li>
+							<li><a href="nouveaute.html">Nouveautés</a></li>
+							<li><a href="abonnement.html">Abonnements</a></li>
+							<li><a href="sondage.html">Sondage</a></li>
+							<li><a href="../annulaire.html#contact">Contact</a></li>
+							<li class="footer-accessibility"><a href="accessibilite.html" aria-current="page">Déclaration d'accessibilité</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="../script/script.js"></script>
+	</body>
+</html>
